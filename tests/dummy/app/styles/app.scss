@@ -8,7 +8,7 @@ body {
   padding: 0;
   margin: 0;
 
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   font-weight: 400;
 
   overflow-y: auto;
@@ -32,4 +32,12 @@ body {
   :global .media {
     width: mediaBreakpoint1;
   }
+}
+
+:global .noSelect {
+  user-select: none;
+  -ms-user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
 }
