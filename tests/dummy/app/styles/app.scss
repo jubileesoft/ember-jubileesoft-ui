@@ -1,0 +1,35 @@
+@value mediaBreakpoint1: 940px;
+@value desk from 'dummy/styles/colors';
+
+html,
+body {
+  width: 100vw;
+  height: 100vh;
+  padding: 0;
+  margin: 0;
+
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+
+  overflow-y: auto;
+
+  background: desk;
+}
+
+:global .media {
+  max-width: mediaBreakpoint1;
+  padding-left: 1.5rem; // 24px with 16px default font-size
+  padding-right: 1.5rem; // 24px with 16px default font-size
+}
+
+@media (max-width: mediaBreakpoint1) {
+  :global .media {
+    width: 100%;
+  }
+}
+
+@media (min-width: mediaBreakpoint1) {
+  :global .media {
+    width: mediaBreakpoint1;
+  }
+}

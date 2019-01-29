@@ -1,0 +1,31 @@
+@value desk from 'colors';
+@value onSurfaceDark from 'colors';
+@value primary from 'colors';
+
+.root {
+  composes: jubileeUi from 'ember-jubileesoft-ui/styles/addon';
+
+  display: flex;
+  flex-direction: column;
+}
+
+.input {
+  height: 2.5rem; // 40px with 16px default font-size
+  
+  padding: 0 0.5rem; // 0 8px with 16px default font-size
+
+  box-sizing: border-box;
+  border: 1px solid rgba(155, 155, 155, 0.6);
+  
+  font-family: inherit;
+  font-size: 1rem; // 16px with 16px default font-size
+
+  color: onSurfaceDark;
+  background: desk;
+}
+
+.input:focus {
+  outline: none;
+  background: #ffffff;
+  border-color: primary;
+}

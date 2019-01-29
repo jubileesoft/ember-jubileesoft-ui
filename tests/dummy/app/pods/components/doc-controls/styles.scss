@@ -1,0 +1,17 @@
+
+.root {
+  padding-top: 1.5rem; // 24px with 16px default font-size
+  padding-bottom: 1.5rem; // 24px with 16px default font-size
+
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+
+  background: #e8e8e8;
+}
+
+.inner {
+  display: flex;
+  justify-content: space-around;
+}

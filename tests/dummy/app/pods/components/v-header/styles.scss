@@ -1,0 +1,50 @@
+@value primary, onPrimary from 'dummy/styles/colors';
+@value mediaBreakpoint1 from 'dummy/styles/app';
+
+.root {
+    height: 4.5rem; // 72px with 16px default font-size
+    width: 100%;
+    background: primary;
+
+    display: flex;
+    justify-content: center;
+}
+
+.header {
+    max-width: mediaBreakpoint1;
+    
+    color: onPrimary;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding-left: 1.5rem; // 24px with 16px default font-size
+    padding-right: 1.5rem; // 24px with 16px default font-size
+}
+
+.header .brand {
+    font-size: 1.375rem;
+    font-weight: 500;
+
+    cursor: pointer;
+}
+
+
+// @media only screen and (max-width: 0px) {
+//     .header {
+//         width: 100%;
+//     }
+// }
+
+@media only screen and (max-width: mediaBreakpoint1) {
+    .header {
+        width: 100%;
+    }
+}
+
+@media only screen and (min-width: mediaBreakpoint1) {
+    .header {
+        width: mediaBreakpoint1;
+    }
+}

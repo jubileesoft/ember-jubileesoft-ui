@@ -1,0 +1,14 @@
+@value primary from 'dummy/styles/colors';
+
+.name {
+  margin-top: 1.5rem; // 24px with 16px default font-size
+  margin-bottom: 1.5rem; // 24px with 16px default font-size
+  font-size: 2rem; // 32px with 16px default font-size
+  color: primary;
+}
+
+.element {
+  margin-bottom: 1.5rem; // 24px with 16px default font-size
+  display: flex;
+  justify-content: center;
+}

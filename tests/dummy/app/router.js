@@ -7,6 +7,8 @@ const Router = EmberRouter.extend({
 });
 
 Router.map(function() {
+  this.route('menu');
+  this.route('doc-jubilee-text-field');
 });
 
 export default Router;

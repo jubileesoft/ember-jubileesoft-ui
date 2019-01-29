@@ -1,0 +1,15 @@
+<Doc as |doc|>
+  <doc.element @name="TextField">
+    <JubileeTextField @label={{if this.showLabel this.label}} />
+  </doc.element>
+  <doc.controls>
+    <div>
+      {{input
+        type="checkbox"
+        checked=this.showLabel
+      }}
+      has label
+    </div>
+  </doc.controls>
+  <doc.hbs @code={{this.code}}/>
+</Doc>

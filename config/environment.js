@@ -1,5 +1,8 @@
 'use strict';
 
 module.exports = function(/* environment, appConfig */) {
-  return { };
+  let ENV = {
+    podModulePrefix: 'ember-jubileesoft-ui/pods',
+  }
+  return ENV;
 };
