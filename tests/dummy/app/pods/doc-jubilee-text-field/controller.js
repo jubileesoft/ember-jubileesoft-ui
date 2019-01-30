@@ -35,10 +35,12 @@ export default Controller.extend({
     code[0] = '<JubileeTextField';
 
     if (this.showLabel) {
-      code[2] = '  @label="' + this.label + '"';
+      code[1] = '  @label="' + this.label + '"';
     } else {
-      code[2] = undefined;
+      code[1] = undefined;
     }
+
+    code[2] = '  @text={{this.name}}';
 
     code[99] = '/>';
 
