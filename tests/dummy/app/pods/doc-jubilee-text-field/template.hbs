@@ -1,6 +1,11 @@
 <Doc as |doc|>
   <doc.element @name="TextField">
-    <JubileeTextField @label={{if this.showLabel this.label}} />
+    <JubileeTextField 
+      class={{local-class "textField"}}
+      @label={{if this.showLabel this.label}}
+      @label2={{if this.showLabel2 this.label2}}
+      @isReadonly={{this.isReadonly}}
+    />
   </doc.element>
   <doc.controls>
     <div>
@@ -9,6 +14,20 @@
         checked=this.showLabel
       }}
       has label
+    </div>
+    <div>
+      {{input
+        type="checkbox"
+        checked=this.showLabel2
+      }}
+      has label2
+    </div>
+    <div>
+      {{input
+        type="checkbox"
+        checked=this.isReadonly
+      }}
+      isReadonly
     </div>
   </doc.controls>
   <doc.hbs @code={{this.code}}/>

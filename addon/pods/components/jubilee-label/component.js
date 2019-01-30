@@ -13,6 +13,16 @@ export default Component.extend({
     return this.label;
   }),
 
+  hasLabel2: computed('label2', function() {
+    return this.label2;
+  }),
+
+  hasAnyLabel: computed('label', 'label2', function() {
+    return this.label || this.label2;
+  }),
+
+  
+
   // #endregion Properties
   
 });

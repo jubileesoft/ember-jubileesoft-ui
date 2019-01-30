@@ -4,9 +4,20 @@
   composes: jubileeUi from "ember-jubileesoft-ui/styles/addon";
 
   font-size: 1rem; // 16px with 16px default font-size
-  font-weight: 500;
-  
   color: onSurface;
 
+  display: flex;
+  flex-direction: row;
+
   margin-bottom: 0.25rem; // 4px with 16px default font-size
+}
+
+.label {
+  font-weight: 500;
+  margin-right: 0.25rem; // 12px with 16px default font-size
+}
+
+.label2 {
+  font-weight: 400;
+  opacity: 0.6;
 }
