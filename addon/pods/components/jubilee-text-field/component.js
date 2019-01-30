@@ -9,6 +9,17 @@ export default Component.extend({
   hasLabel: computed('label', function () {
     return this.label;
   }),
+  computedIsReadonly: computed('isReadonly', function() {
+    if(this.isReadonly == undefined) {
+      return false;
+    }
+
+    if(this.isReadonly === true) {
+      return true;
+    }
+
+    return false;
+  }),
 
   // #endregion Properties
 

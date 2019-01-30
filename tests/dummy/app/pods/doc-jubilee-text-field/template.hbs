@@ -1,6 +1,9 @@
 <Doc as |doc|>
   <doc.element @name="TextField">
-    <JubileeTextField @label={{if this.showLabel this.label}} />
+    <JubileeTextField 
+      @label={{if this.showLabel this.label}} 
+      @isReadonly={{this.isReadonly}}
+    />
   </doc.element>
   <doc.controls>
     <div>
@@ -9,6 +12,13 @@
         checked=this.showLabel
       }}
       has label
+    </div>
+    <div>
+      {{input
+        type="checkbox"
+        checked=this.isReadonly
+      }}
+      isReadonly
     </div>
   </doc.controls>
   <doc.hbs @code={{this.code}}/>

@@ -8,6 +8,7 @@ export default Controller.extend({
   label: 'Company',
   code: null,
   showLabel: true,
+  isReadonly: false,
 
   // #endregion Properties
 
@@ -25,7 +26,7 @@ export default Controller.extend({
 
   // #region Methods
 
-  showLabelChanged: observer('showLabel', function() {
+  settingsChanged: observer('showLabel', 'isReadonly', function() {
     this.setHbs();
   }),
 
@@ -41,6 +42,12 @@ export default Controller.extend({
     }
 
     code[2] = '  @text={{this.name}}';
+
+    if(this.isReadonly) {
+      code[3] = '  @isReadonly={{true}}';
+    } else {
+      code[3] = undefined;
+    }
 
     code[99] = '/>';
 
