@@ -6,9 +6,11 @@ export default Component.extend({
   // #region Properties
 
   layout,
-  hasLabel: computed('label', function () {
-    return this.label;
-  }),
+  
+  hasAnyLabel: computed('label', 'label2', function() {
+    return this.label || this.label2;
+  }), 
+
   computedIsReadonly: computed('isReadonly', function() {
     if(this.isReadonly == undefined) {
       return false;

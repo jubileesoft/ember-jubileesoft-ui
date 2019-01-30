@@ -1,5 +1,14 @@
-{{#if this.hasLabel}}
+{{#if this.hasAnyLabel}}
   <div local-class="root" class="noSelect">
-    {{@label}}
+    {{#if this.hasLabel}}
+      <div local-class="label">
+        {{@label}}
+      </div>
+    {{/if}}
+    {{#if this.hasLabel2}}
+      <div local-class="label2">
+        {{@label2}}
+      </div>
+    {{/if}}
   </div>
 {{/if}}

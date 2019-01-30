@@ -6,8 +6,10 @@ export default Controller.extend({
   // #region Properties
 
   label: 'Company',
+  label2: '(max 30 characters)',
   code: null,
   showLabel: true,
+  showLabel2: false,
   isReadonly: false,
 
   // #endregion Properties
@@ -26,7 +28,7 @@ export default Controller.extend({
 
   // #region Methods
 
-  settingsChanged: observer('showLabel', 'isReadonly', function() {
+  settingsChanged: observer('showLabel', 'showLabel2', 'isReadonly', function() {
     this.setHbs();
   }),
 
@@ -41,12 +43,18 @@ export default Controller.extend({
       code[1] = undefined;
     }
 
-    code[2] = '  @text={{this.name}}';
+    if (this.showLabel2) {
+      code[2] = '  @label2="' + this.label2 + '"';
+    } else {
+      code[2] = undefined;
+    }
+
+    code[4] = '  @text={{this.name}}';
 
     if(this.isReadonly) {
-      code[3] = '  @isReadonly={{true}}';
+      code[5] = '  @isReadonly={{true}}';
     } else {
-      code[3] = undefined;
+      code[5] = undefined;
     }
 
     code[99] = '/>';

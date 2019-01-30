@@ -1,6 +1,6 @@
 <div local-class="root">
-  {{#if this.hasLabel}}
-    <JubileeLabel @label={{@label}}/>
+  {{#if this.hasAnyLabel}}
+    <JubileeLabel @label={{@label}} @label2={{@label2}}/>
   {{/if}}
   {{input 
     readonly=computedIsReadonly
