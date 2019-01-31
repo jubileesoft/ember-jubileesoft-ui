@@ -1,1 +1,1 @@
-export { default } from 'ember-jubileesoft-ui/pods/components/jubilee-text-field/component';
+export { default } from '@jubileesoft/ember-jubileesoft-ui/pods/components/jubilee-text-field/component';

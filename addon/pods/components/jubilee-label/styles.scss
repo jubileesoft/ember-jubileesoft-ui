@@ -1,7 +1,7 @@
 @value onSurface from 'colors';
 
 .root {
-  composes: jubileeUi from "ember-jubileesoft-ui/styles/addon";
+  composes: jubileeUi from "@jubileesoft/ember-jubileesoft-ui/styles/addon";
 
   font-size: 1rem; // 16px with 16px default font-size
   color: onSurface;
