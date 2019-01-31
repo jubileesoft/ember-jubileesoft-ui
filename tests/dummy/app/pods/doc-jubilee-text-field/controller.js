@@ -10,6 +10,7 @@ export default Controller.extend({
   code: null,
   showLabel: true,
   showLabel2: false,
+  isOnClickSelect: false,
   isReadonly: false,
 
   // #endregion Properties
@@ -28,7 +29,10 @@ export default Controller.extend({
 
   // #region Methods
 
-  settingsChanged: observer('showLabel', 'showLabel2', 'isReadonly', function() {
+  settingsChanged: observer('showLabel',
+    'showLabel2',
+    'isReadonly',
+    'isOnClickSelect', function() {
     this.setHbs();
   }),
 
@@ -51,10 +55,16 @@ export default Controller.extend({
 
     code[4] = '  @text={{this.name}}';
 
-    if(this.isReadonly) {
-      code[5] = '  @isReadonly={{true}}';
+    if(this.isOnClickSelect) {
+      code[5] = '  onClickSelect={{true}}';
     } else {
       code[5] = undefined;
+    }
+
+    if(this.isReadonly) {
+      code[6] = '  @isReadonly={{true}}';
+    } else {
+      code[6] = undefined;
     }
 
     code[99] = '/>';

@@ -5,6 +5,7 @@
       @label={{if this.showLabel this.label}}
       @label2={{if this.showLabel2 this.label2}}
       @isReadonly={{this.isReadonly}}
+      @onClickSelect={{this.isOnClickSelect}}
     />
   </doc.element>
   <doc.controls>
@@ -21,6 +22,13 @@
         checked=this.showLabel2
       }}
       has label2
+    </div>
+    <div>
+      {{input
+        type="checkbox"
+        checked=this.isOnClickSelect
+      }}
+      onClickSelect
     </div>
     <div>
       {{input

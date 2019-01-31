@@ -2,11 +2,13 @@
   {{#if this.hasAnyLabel}}
     <JubileeLabel @label={{@label}} @label2={{@label2}}/>
   {{/if}}
-  {{input 
+  {{input
+    id=(concat this.elementId "-input")
     readonly=computedIsReadonly
     class=(local-class "input")
     type="text"
     autocomplete="off"
     value=text
+    click=(action "onClick")
   }}
 </div>
