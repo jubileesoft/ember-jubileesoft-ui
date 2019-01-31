@@ -16,6 +16,7 @@
       }}
       has label
     </div>
+    
     <div>
       {{input
         type="checkbox"
@@ -23,6 +24,7 @@
       }}
       has label2
     </div>
+    
     <div>
       {{input
         type="checkbox"
@@ -30,12 +32,29 @@
       }}
       onClickSelect
     </div>
+    
     <div>
       {{input
         type="checkbox"
         checked=this.isReadonly
       }}
       isReadonly
+    </div>
+
+    <div>
+      {{input
+        type="checkbox"
+        checked=this.isOnFocusIn
+      }}
+      handle onFocusIn
+    </div>
+
+    <div>
+      {{input
+        type="checkbox"
+        checked=this.isOnFocusOut
+      }}
+      handle onFocusOut
     </div>
   </doc.controls>
   <doc.hbs @code={{this.code}}/>
