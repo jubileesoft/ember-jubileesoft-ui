@@ -3,7 +3,7 @@
 @value primary from 'colors';
 
 .root {
-  composes: jubileeUi from 'ember-jubileesoft-ui/styles/addon';
+  composes: jubileeUi from '@jubileesoft/ember-jubileesoft-ui/styles/addon';
 
   display: flex;
   flex-direction: column;

@@ -4,6 +4,16 @@ All notable changes to this project will be documented in this file. The format 
 
 An online documentation of the components is available [here](https://ui.jubileesoft.com/).
 
+## <span style="color: #0366d6;">0.2.2</span>
+
+Release Date: 2019-01-31
+
+##### Fixed
+
+- Fix internal references to newly scoped package "@jubileesoft/ember-jubileesoft-ui".
+- Fix repository in `package.json`.
+
+
 ## <span style="color: #0366d6;">0.2.1</span>
 
 Release Date: 2019-01-30
