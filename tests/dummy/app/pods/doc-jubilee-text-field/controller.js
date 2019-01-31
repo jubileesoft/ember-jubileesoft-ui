@@ -9,8 +9,11 @@ export default Controller.extend({
   label2: '(max 30 characters)',
   code: null,
   showLabel: true,
-  showLabel2: false,
+  showLabel2: true,
+  isOnClickSelect: false,
   isReadonly: false,
+  isOnFocusIn: true,
+  isOnFocusOut: true,
 
   // #endregion Properties
 
@@ -28,9 +31,16 @@ export default Controller.extend({
 
   // #region Methods
 
-  settingsChanged: observer('showLabel', 'showLabel2', 'isReadonly', function() {
-    this.setHbs();
-  }),
+  settingsChanged: observer(
+    'showLabel',
+    'showLabel2',
+    'isReadonly',
+    'isOnClickSelect',
+    'isOnFocusIn',
+    'isOnFocusOut',
+    function () {
+      this.setHbs();
+    }),
 
   setHbs() {
     const code = [];
@@ -51,15 +61,31 @@ export default Controller.extend({
 
     code[4] = '  @text={{this.name}}';
 
-    if(this.isReadonly) {
-      code[5] = '  @isReadonly={{true}}';
+    if (this.isOnClickSelect) {
+      code[5] = '  @onClickSelect={{true}}';
     } else {
       code[5] = undefined;
     }
 
+    if (this.isReadonly) {
+      code[6] = '  @isReadonly={{true}}';
+    } else {
+      code[6] = undefined;
+    }
+
+    if (this.isOnFocusIn) {
+      code[20] = '  @onFocusIn={{action "onFocusCaptured"}}';
+    } else {
+      code[20] = undefined;
+    }
+
+    if (this.isOnFocusOut) {
+      code[21] = '  @onFocusOut={{action "onFocusLost"}}';
+    } else {
+      code[21] = undefined;
+    }
+
     code[99] = '/>';
-
-
 
     this.set('code', join(code));
   },

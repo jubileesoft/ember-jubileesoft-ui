@@ -1,3 +1,4 @@
+@value mediaBreakpoint1 from 'dummy/styles/app';
 
 .root {
   padding-top: 1.5rem; // 24px with 16px default font-size
@@ -13,5 +14,18 @@
 
 .inner {
   display: flex;
-  justify-content: space-around;
+}
+
+@media (max-width: mediaBreakpoint1) {
+  .inner {
+    flex-direction: column;
+  }
+}
+
+@media (min-width: mediaBreakpoint1) {
+  .inner {
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+  }
 }

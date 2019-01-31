@@ -4,6 +4,30 @@ All notable changes to this project will be documented in this file. The format 
 
 An online documentation of the components is available [here](https://ui.jubileesoft.com/).
 
+## <span style="color: #0366d6;">0.3.0</span>
+
+Release Date: 2019-01-31
+
+##### Added
+
+- Add new (bool) property `onClickSelect` to **JubileeTextField** to auto-select the text when the input is clicked.
+- Add new event `onFocusIn` to **JubileeTextField**.
+- Add new event `onFocusOut` to **JubileeTextField**.
+
+##### Changed
+
+- Increase font-size on **JubileeTextField** input from 1rem to 1.25rem.
+- [DOCS] Show the controls for small screens "in column" and not "in row" (as for big screens). 
+
+##### Fixed
+
+- Fix width-issue in **JubileeTextField**.
+- Fix broken autocomplete on **JubileeTextField**.
+
+
+
+
+
 ## <span style="color: #0366d6;">0.2.2</span>
 
 Release Date: 2019-01-31
@@ -12,7 +36,6 @@ Release Date: 2019-01-31
 
 - Fix internal references to newly scoped package "@jubileesoft/ember-jubileesoft-ui".
 - Fix repository in `package.json`.
-
 
 ## <span style="color: #0366d6;">0.2.1</span>
 

@@ -11,6 +11,7 @@
 
 .input {
   height: 2.5rem; // 40px with 16px default font-size
+  width: 100%;
   
   padding: 0 0.5rem; // 0 8px with 16px default font-size
 
@@ -18,7 +19,7 @@
   border: 1px solid rgba(155, 155, 155, 0.6);
   
   font-family: inherit;
-  font-size: 1rem; // 16px with 16px default font-size
+  font-size: 1.125rem; // 16px with 16px default font-size
 
   color: onSurfaceDark;
   background: desk;
