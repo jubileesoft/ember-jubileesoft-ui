@@ -1,61 +1,50 @@
 <Doc as |doc|>
   <doc.element @name="TextField">
-    <JubileeTextField 
+    <JubileeTextField
       class={{local-class "textField"}}
       @label={{if this.showLabel this.label}}
       @label2={{if this.showLabel2 this.label2}}
+      @text={{this.text}}
       @isReadonly={{this.isReadonly}}
-      @onClickSelect={{this.isOnClickSelect}}
-    />
+      @onChange={{action "onChange"}}
+      @update={{this.selectedUpdate}}
+     />
+
   </doc.element>
   <doc.controls>
     <div>
-      {{input
-        type="checkbox"
-        checked=this.showLabel
-      }}
-      has label
+      {{input type="checkbox" checked=this.showLabel}}
+      @label
     </div>
-    
     <div>
-      {{input
-        type="checkbox"
-        checked=this.showLabel2
-      }}
-      has label2
+      {{input type="checkbox" checked=this.showLabel2}}
+      @label2
     </div>
-    
     <div>
-      {{input
-        type="checkbox"
-        checked=this.isOnClickSelect
-      }}
-      onClickSelect
+      {{input type="checkbox" checked=this.isOnChange}}
+      @onChange
     </div>
-    
     <div>
-      {{input
-        type="checkbox"
-        checked=this.isReadonly
-      }}
-      isReadonly
-    </div>
-
-    <div>
-      {{input
-        type="checkbox"
-        checked=this.isOnFocusIn
-      }}
-      handle onFocusIn
-    </div>
-
-    <div>
-      {{input
-        type="checkbox"
-        checked=this.isOnFocusOut
-      }}
-      handle onFocusOut
+      {{input type="checkbox" checked=this.isReadonly}}
+      @isReadonly
     </div>
   </doc.controls>
-  <doc.hbs @code={{this.code}}/>
+  <doc.controls>
+    <div>
+      onChange events:
+      {{this.onChangeEvents}}
+    </div>
+  </doc.controls>
+  <doc.hbs @code={{this.code}} />
+  <doc.info>
+    <p>
+      This component adheres to DDAU. A two-way binding can be achieved via
+      the mut helper (see example above).
+    </p>
+    <p>
+      The configured @update ('on-blur', 'on-input')
+      determines when the @onChange event is triggered. 'on-input' is the default 
+      value if nothing is set.
+    </p>
+  </doc.info>
 </Doc>

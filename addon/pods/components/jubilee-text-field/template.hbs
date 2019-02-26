@@ -4,10 +4,12 @@
   {{/if}}
   {{input
     id=(concat this.elementId "-input")
-    readonly=computedIsReadonly
+    readonly=this.computedIsReadonly
     class=(local-class "input")
     type="text"
     autocomplete="off"
-    value=text
+    value=this.onewayText
+    focus-out=(action "onBlur")
+    input=(action "onInput")
   }}
 </div>
