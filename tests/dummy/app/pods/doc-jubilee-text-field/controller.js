@@ -2,6 +2,11 @@ import Controller from '@ember/controller';
 import { join } from 'dummy/utils/common';
 import { observer } from '@ember/object';
 
+const UPDATE = {
+  ONBLUR: 'on-blur',
+  ONINPUT: 'on-input'
+};
+
 export default Controller.extend({
   // #region Properties
 
@@ -10,10 +15,10 @@ export default Controller.extend({
   code: null,
   showLabel: true,
   showLabel2: true,
-  isOnClickSelect: false,
   isReadonly: false,
-  isOnFocusIn: true,
-  isOnFocusOut: true,
+  isOnChange: true,
+  onChangeEvents: 0,
+  text: 'Fanatasy Ltd.',
 
   // #endregion Properties
 
@@ -23,10 +28,27 @@ export default Controller.extend({
   init() {
     this._super(...arguments);
 
+    this.set('updates', [UPDATE.ONBLUR, UPDATE.ONINPUT]);
+    this.set('selectedUpdate', this.updates[0]);
+
     this.setHbs();
   },
 
   // #endregion Hooks
+
+
+  // #region Actions
+
+  actions: {
+    onChange(newValue) {
+      if (this.isOnChange) {
+        this.set('text', newValue);
+        this.incrementProperty('onChangeEvents');
+      }
+    },
+  },
+
+  // #endregion Actions
 
 
   // #region Methods
@@ -35,9 +57,7 @@ export default Controller.extend({
     'showLabel',
     'showLabel2',
     'isReadonly',
-    'isOnClickSelect',
-    'isOnFocusIn',
-    'isOnFocusOut',
+    'isOnChange',
     function () {
       this.setHbs();
     }),
@@ -45,47 +65,31 @@ export default Controller.extend({
   setHbs() {
     const code = [];
 
-    code[0] = '<JubileeTextField';
+    code.push('<JubileeTextField');
 
     if (this.showLabel) {
-      code[1] = '  @label="' + this.label + '"';
-    } else {
-      code[1] = undefined;
+      code.push('  @label="' + this.label + '"');
     }
 
     if (this.showLabel2) {
-      code[2] = '  @label2="' + this.label2 + '"';
-    } else {
-      code[2] = undefined;
+      code.push('  @label2="' + this.label2 + '"');
     }
 
-    code[4] = '  @text={{this.name}}';
+    code.push('  @text={{this.name}}');
 
-    if (this.isOnClickSelect) {
-      code[5] = '  @onClickSelect={{true}}';
-    } else {
-      code[5] = undefined;
+    if (this.isOnChange) {
+      code.push('  @onChange={{action (mut this.name)}');
+    }
+
+    if (this.selectedUpdate === UPDATE.ONBLUR) {
+      code.push('  @update="' + UPDATE.ONBLUR + '"');
     }
 
     if (this.isReadonly) {
-      code[6] = '  @isReadonly={{true}}';
-    } else {
-      code[6] = undefined;
+      code.push('  @isReadonly={{true}}');
     }
 
-    if (this.isOnFocusIn) {
-      code[20] = '  @onFocusIn={{action "onFocusCaptured"}}';
-    } else {
-      code[20] = undefined;
-    }
-
-    if (this.isOnFocusOut) {
-      code[21] = '  @onFocusOut={{action "onFocusLost"}}';
-    } else {
-      code[21] = undefined;
-    }
-
-    code[99] = '/>';
+    code.push('/>');
 
     this.set('code', join(code));
   },

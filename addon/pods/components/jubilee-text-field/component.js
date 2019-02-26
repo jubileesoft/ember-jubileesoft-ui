@@ -1,8 +1,19 @@
 import Component from '@ember/component';
 import layout from './template';
 import { computed } from '@ember/object';
+import { equal, oneWay } from '@ember/object/computed';
 
 export default Component.extend({
+  /*
+    @label {string}
+    @label2 {string}
+    @text {string}
+    @update {string} - 'on-blur', 'on-input' (default)
+    @onChange {callback}
+    @isReadonly {boolean}
+  */
+
+
   // #region Properties
 
   layout,
@@ -11,17 +22,11 @@ export default Component.extend({
     return this.label || this.label2;
   }),
 
-  computedIsReadonly: computed('isReadonly', function () {
-    if (this.isReadonly == undefined) {
-      return false;
-    }
+  computedIsReadonly: equal('isReadonly', true),
 
-    if (this.isReadonly === true) {
-      return true;
-    }
+  onewayText: oneWay('text'),
 
-    return false;
-  }),
+  isOnBlur: equal('update', 'on-blur'),
 
   // #endregion Properties
 
@@ -29,32 +34,45 @@ export default Component.extend({
   // #region Actions
 
   actions: {
-    onClick() {
-      const input = document.getElementById(this.elementId + '-input');
-
-      if (this.onClickSelect === true) {
-        setTimeout(function () { input.select(); }, 0); // IMPORTANT
+    onBlur(/*event*/) {
+      if (!this.isOnBlur) {
+        // @update === 'on-input'
+        // Changes would have been propagated before. 
+        // Nothing to do here.
+        return;
       }
 
+      this._triggerOnChange(this.onewayText);
     },
 
-
-    onFocusInEvent() {
-      const input = document.getElementById(this.elementId + '-input');
-         
-      if (this.onFocusIn) {
-        this.onFocusIn(input);
+    onInput(/*event*/) {
+      if (this.isOnBlur) {
+        // Nothing to do here.
+        return;
       }
-    },
 
-    onFocusOutEvent() {
-      const input = document.getElementById(this.elementId + '-input');
-
-      if (this.onFocusOut) {
-        this.onFocusOut(input);
-      }
+      this._triggerOnChange(this.onewayText);
     },
   },
 
   // #endregion Actions
+
+
+  // #region Methods
+
+  _triggerOnChange(newValue) {
+    if (this.onewayText == '' && this.text == undefined) {
+      return;
+    }
+
+    if (this.onewayText === this.text) {
+      return;
+    }
+
+    if (this.onChange) {
+      this.onChange(newValue);
+    }
+  }
+
+  // #endregion Methods
 });
