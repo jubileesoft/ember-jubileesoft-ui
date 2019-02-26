@@ -27,22 +27,6 @@ export default Component.extend({
         setTimeout(function () { input.select(); }, 0); // IMPORTANT
       }
     },
-
-    onFocusInEvent() {
-      const input = document.getElementById(this.elementId + '-input');
-
-      if (this.onFocusIn) {
-        this.onFocusIn(input);
-      }
-    },
-
-    onFocusOutEvent() {
-      const input = document.getElementById(this.elementId + '-input');
-
-      if (this.onFocusOut) {
-        this.onFocusOut(input);
-      }
-    },
   },
 
   // #endregion Actions
