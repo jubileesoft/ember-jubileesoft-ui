@@ -1,6 +1,7 @@
 import Component from '@ember/component';
 import layout from './template';
 import { computed } from '@ember/object';
+import { equal } from '@ember/object/computed';
 
 export default Component.extend({
   // #region Properties
@@ -11,17 +12,7 @@ export default Component.extend({
     return this.label || this.label2;
   }),
 
-  computedIsReadonly: computed('isReadonly', function () {
-    if (this.isReadonly == undefined) {
-      return false;
-    }
-
-    if (this.isReadonly === true) {
-      return true;
-    }
-
-    return false;
-  }),
+  computedIsReadonly: equal('isReadonly', true),
 
   // #endregion Properties
 
@@ -35,13 +26,11 @@ export default Component.extend({
       if (this.onClickSelect === true) {
         setTimeout(function () { input.select(); }, 0); // IMPORTANT
       }
-
     },
-
 
     onFocusInEvent() {
       const input = document.getElementById(this.elementId + '-input');
-         
+
       if (this.onFocusIn) {
         this.onFocusIn(input);
       }
