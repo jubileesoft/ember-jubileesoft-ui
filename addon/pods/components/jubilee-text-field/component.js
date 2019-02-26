@@ -20,13 +20,7 @@ export default Component.extend({
   // #region Actions
 
   actions: {
-    onClick() {
-      const input = document.getElementById(this.elementId + '-input');
-
-      if (this.onClickSelect === true) {
-        setTimeout(function () { input.select(); }, 0); // IMPORTANT
-      }
-    },
+    
   },
 
   // #endregion Actions
