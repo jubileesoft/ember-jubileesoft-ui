@@ -4,6 +4,16 @@ All notable changes to this project will be documented in this file. The format 
 
 An online documentation of the components is available [here](https://ui.jubileesoft.com/).
 
+## <span style="color: #0366d6;">0.4.1</span>
+
+Release Date: 2019-02-28
+
+##### Changed
+
+- Bump sass from 1.16.1 to 1.17.2
+- Bump ember-cli-sass from 9.0.1 to 10.0.0
+- Bump ember-css-modules from 1.1.0 to 1.1.1
+
 ## <span style="color: #0366d6;">0.4.0</span>
 
 Release Date: 2019-02-28
