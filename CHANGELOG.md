@@ -4,6 +4,21 @@ All notable changes to this project will be documented in this file. The format 
 
 An online documentation of the components is available [here](https://ui.jubileesoft.com/).
 
+## <span style="color: #0366d6;">0.4.0</span>
+
+Release Date: 2019-02-28
+
+##### Added
+
+- Add new component JubileeSelect (DropDown).
+
+##### Changed
+
+- Redesign JubileeTextField
+  - Remove `onFocusInEvent`, `onFocusOutEvent` and `onClickSelect`.
+  - Implement DDAU with one-way binding of the `@text` attribute and `@onChange` event.
+  - Support `on-blur` and `on-input` as `@update` strategy for evaluating when to fire the onChange event. 
+
 ## <span style="color: #0366d6;">0.3.0</span>
 
 Release Date: 2019-01-31

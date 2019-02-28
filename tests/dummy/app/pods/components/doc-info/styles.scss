@@ -1,0 +1,11 @@
+@value mediaBreakpoint1 from 'dummy/styles/app';
+
+.root {
+  padding-top: 1.5rem; // 24px with 16px default font-size
+  padding-bottom: 1.5rem; // 24px with 16px default font-size
+
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+}
