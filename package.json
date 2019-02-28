@@ -34,7 +34,7 @@
     "ember-css-modules": "^1.1.0",
     "ember-css-modules-sass": "^1.0.1",
     "ember-truth-helpers": "^2.1.0",
-    "sass": "^1.16.1"
+    "sass": "^1.17.2"
   },
   "devDependencies": {
     "@ember/optional-features": "^0.6.3",
