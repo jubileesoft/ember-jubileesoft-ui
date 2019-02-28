@@ -1,1 +1,32 @@
-{{yield}}
+<div local-class="root">
+  <div
+    id={{concat this.elementId "_trigger"}}
+    local-class="trigger"
+    role="button"
+    {{action "triggerClicked"}}
+  >
+    <div local-class="content">
+      {{yield this.onewaySelectedItem}}
+    </div>
+    <div local-class="caret">
+      {{fa-icon "caret-down"}}
+    </div>
+  </div>
+  {{! DROPDOWM }}
+  <div
+    class={{local-class (unless isDropdownOpen "collapsed")}}
+    id={{concat this.elementId "_dropdown"}}
+    local-class="dropdown"
+  >
+    {{#each @items as |item|}}
+      <div
+        class={{local-class (if (eq item this.selectedItem) "itemSelected")}}
+        role="button"
+        local-class="item"
+        {{action "itemClicked" item}}
+      >
+        {{yield item}}
+      </div>
+    {{/each}}
+  </div>
+</div>
