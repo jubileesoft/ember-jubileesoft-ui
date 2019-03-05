@@ -4,6 +4,18 @@ All notable changes to this project will be documented in this file. The format 
 
 An online documentation of the components is available [here](https://ui.jubileesoft.com/).
 
+## <span style="color: #0366d6;">0.4.2</span>
+
+Release Date: 2019-03-05
+
+##### Added
+
+- Add an isSmall mode (for mobile devices) to JubileeSelect.
+
+##### Fixed
+
+- Fix missing @updates in docs for JubileeTextField.
+
 ## <span style="color: #0366d6;">0.4.1</span>
 
 Release Date: 2019-02-28

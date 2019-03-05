@@ -1,3 +1,13 @@
 .textField {
   width: 250px;
 }
+
+.control {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.controlFirst {
+  margin-right: 8px;
+}

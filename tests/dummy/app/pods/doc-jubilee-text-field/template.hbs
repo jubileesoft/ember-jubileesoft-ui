@@ -24,6 +24,17 @@
       {{input type="checkbox" checked=this.isOnChange}}
       @onChange
     </div>
+    <div local-class="control">
+      <JubileeSelect
+        class={{local-class "controlFirst"}}
+        @items={{this.updates}}
+        @selectedItem={{this.selectedUpdate}}
+        @onChange={{action (mut this.selectedUpdate)}} as |item|
+      >
+        {{item}}
+      </JubileeSelect>
+      @update
+    </div>
     <div>
       {{input type="checkbox" checked=this.isReadonly}}
       @isReadonly

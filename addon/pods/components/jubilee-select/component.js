@@ -1,8 +1,16 @@
 import Component from '@ember/component';
 import layout from './template';
 import { oneWay } from '@ember/object/computed';
+import { inject as service } from '@ember/service';
 
 export default Component.extend({
+  // #region Services
+
+  media: service(),
+
+  // #endregion Services
+
+
   // #region Properties
 
   layout,
@@ -63,6 +71,9 @@ export default Component.extend({
   // #region Methods
 
   _adjustDropdownWidth() {
+    if (this.media.isSmall) {
+      return;
+    }
     const triggerElement = document.getElementById(this._triggerId);
     const dropdownElement = document.getElementById(this._dropdownId);
 
@@ -70,6 +81,9 @@ export default Component.extend({
   },
 
   _adjustDropdownPosition() {
+    if (this.media.isSmall) {
+      return;
+    }
     let index = this.items.indexOf(this.selectedItem);
 
     const dropdownElement = document.getElementById(this._dropdownId);
