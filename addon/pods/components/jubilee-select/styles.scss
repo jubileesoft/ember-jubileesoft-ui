@@ -10,7 +10,9 @@
 
 .root {
   composes: jubileeUi from '@jubileesoft/ember-jubileesoft-ui/styles/addon';
+}
 
+.largeRoot {
   position: relative;
   display: inline-block;
 }
@@ -33,6 +35,7 @@
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: space-between;
 }
 
 .trigger .content {
@@ -58,6 +61,37 @@
   font-size: 1.125rem; // 16px with 16px default font-size  
 }
 
+.smallItemContainer {
+  height: 2.5rem; // 40px
+  
+  padding: 0 0.5rem;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  cursor: pointer;
+}
+
+.smallItemContainer:hover {
+  background: secondary;
+}
+
+.smallItem {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  color: onSurfaceDark;
+}
+
+.smallItemSelected {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  color: primary;
+}
+
 .item {
   height: 2.5rem; // 40px
 
@@ -76,4 +110,8 @@
 
 .itemSelected {
   background: desk;
+}
+
+.selectedColor {
+  color: primary;
 }
