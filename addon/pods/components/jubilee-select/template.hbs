@@ -1,4 +1,4 @@
-<div local-class="root">
+<div local-class={{concat "root" (unless this.media.isSmall " largeRoot")}}>
   <div
     id={{concat this.elementId "_trigger"}}
     local-class="trigger"
@@ -13,20 +13,41 @@
     </div>
   </div>
   {{! DROPDOWM }}
-  <div
-    class={{local-class (unless isDropdownOpen "collapsed")}}
-    id={{concat this.elementId "_dropdown"}}
-    local-class="dropdown"
-  >
-    {{#each @items as |item|}}
-      <div
-        class={{local-class (if (eq item this.selectedItem) "itemSelected")}}
-        role="button"
-        local-class="item"
-        {{action "itemClicked" item}}
-      >
-        {{yield item}}
-      </div>
-    {{/each}}
-  </div>
+  {{#if this.media.isSmall}}
+    <JubileeModal @open={{this.isDropdownOpen}}>
+      {{#each @items as |item|}}
+        <div
+          role="button"
+          local-class="smallItemContainer"
+          {{action "itemClicked" item}}
+        >
+          <div local-class={{concat "smallItem" (if (eq item this.selectedItem) " selectedColor")}}>
+            {{yield item}}
+          </div>
+          {{#if (eq item this.selectedItem)}}
+            <div local-class="smallItemSelected">
+              {{fa-icon "check"}}
+            </div>
+          {{/if}}
+        </div>
+      {{/each}}
+    </JubileeModal>
+  {{else}}
+    <div
+      class={{local-class (unless isDropdownOpen "collapsed")}}
+      id={{concat this.elementId "_dropdown"}}
+      local-class="dropdown"
+    >
+      {{#each @items as |item|}}
+        <div
+          class={{local-class (if (eq item this.selectedItem) "itemSelected")}}
+          role="button"
+          local-class="item"
+          {{action "itemClicked" item}}
+        >
+          {{yield item}}
+        </div>
+      {{/each}}
+    </div>
+  {{/if}}
 </div>

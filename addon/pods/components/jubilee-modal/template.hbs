@@ -1,0 +1,14 @@
+{{#if @open}}
+  {{#modal-dialog
+    onClose=(action (mut @open) false)
+    onClickOverlay=(action "doNothing")
+    translucentOverlay=true
+    overlayPosition="parent"
+    overlayClass=(local-class "overlay")
+    containerClass=(local-class "container")
+  }}
+    <div local-class="yieldArea">
+      {{yield}}
+    </div>
+  {{/modal-dialog}}
+{{/if}}
