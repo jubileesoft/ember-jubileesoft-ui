@@ -1,7 +1,12 @@
 import Component from '@ember/component';
 import layout from './template';
 import { computed } from '@ember/object';
-import { equal, oneWay } from '@ember/object/computed';
+import { equal } from '@ember/object/computed';
+
+const UPDATE = {
+  ONBLUR: 'on-blur',
+  ONINPUT: 'on-input'
+};
 
 export default Component.extend({
   /*
@@ -22,57 +27,55 @@ export default Component.extend({
     return this.label || this.label2;
   }),
 
-  computedIsReadonly: equal('isReadonly', true),
+  computedIsReadonly: equal('isReadonly', true),  
 
-  onewayText: oneWay('text'),
-
-  isOnBlur: equal('update', 'on-blur'),
 
   // #endregion Properties
+
+
+  // #region Hooks
+  
+  didReceiveAttrs() {
+    if(this._oldText ===this.text) {
+      return;
+    }
+
+    this.set('_oldText', this.text);
+    this.set('onewayText', this.text);
+  },
+  
+  // #endregion Hooks
 
 
   // #region Actions
 
   actions: {
-    onBlur(/*event*/) {
-      if (!this.isOnBlur) {
-        // @update === 'on-input'
-        // Changes would have been propagated before. 
-        // Nothing to do here.
+    onInput(/*event*/) {
+      if(this.update !== UPDATE.ONINPUT){
         return;
       }
 
-      this._triggerOnChange(this.onewayText);
+      if(this.onChange) {
+        this.onChange(this.onewayText);
+      }
     },
 
-    onInput(/*event*/) {
-      if (this.isOnBlur) {
-        // Nothing to do here.
+    onBlur(/*event*/) {
+      if(this.update === UPDATE.ONINPUT) {
         return;
       }
 
-      this._triggerOnChange(this.onewayText);
+      if(this.onewayText === this.text) {
+        return;
+      }
+
+      if(!this.onChange) {
+        return;
+      }
+
+      this.onChange(this.onewayText);
     },
   },
 
   // #endregion Actions
-
-
-  // #region Methods
-
-  _triggerOnChange(newValue) {
-    if (this.onewayText == '' && this.text == undefined) {
-      return;
-    }
-
-    if (this.onewayText === this.text) {
-      return;
-    }
-
-    if (this.onChange) {
-      this.onChange(newValue);
-    }
-  }
-
-  // #endregion Methods
 });

@@ -16,7 +16,6 @@ export default Controller.extend({
   showLabel: true,
   showLabel2: true,
   isReadonly: false,
-  isOnChange: true,
   onChangeEvents: 0,
   text: 'Fanatasy Ltd.',
 
@@ -41,10 +40,8 @@ export default Controller.extend({
 
   actions: {
     onChange(newValue) {
-      if (this.isOnChange) {
-        this.set('text', newValue);
-        this.incrementProperty('onChangeEvents');
-      }
+      this.set('text', newValue);
+      this.incrementProperty('onChangeEvents');
     },
   },
 
@@ -57,7 +54,7 @@ export default Controller.extend({
     'showLabel',
     'showLabel2',
     'isReadonly',
-    'isOnChange',
+    'selectedUpdate',    
     function () {
       this.setHbs();
     }),
@@ -77,12 +74,10 @@ export default Controller.extend({
 
     code.push('  @text={{this.name}}');
 
-    if (this.isOnChange) {
-      code.push('  @onChange={{action (mut this.name)}');
-    }
+    code.push('  @onChange={{action (mut this.name)}}');
 
-    if (this.selectedUpdate === UPDATE.ONBLUR) {
-      code.push('  @update="' + UPDATE.ONBLUR + '"');
+    if (this.selectedUpdate === UPDATE.ONINPUT) {
+      code.push('  @update="' + UPDATE.ONINPUT + '"');
     }
 
     if (this.isReadonly) {

@@ -20,10 +20,6 @@
       {{input type="checkbox" checked=this.showLabel2}}
       @label2
     </div>
-    <div>
-      {{input type="checkbox" checked=this.isOnChange}}
-      @onChange
-    </div>
     <div local-class="control">
       <JubileeSelect
         class={{local-class "controlFirst"}}
@@ -54,8 +50,8 @@
     </p>
     <p>
       The configured @update ('on-blur', 'on-input')
-      determines when the @onChange event is triggered. 'on-input' is the default 
-      value if nothing is set.
+      determines when the @onChange event is triggered. 'on-blur' is default 
+      if nothing is set.
     </p>
   </doc.info>
 </Doc>
