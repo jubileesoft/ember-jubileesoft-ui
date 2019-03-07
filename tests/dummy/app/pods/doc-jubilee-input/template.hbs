@@ -1,0 +1,45 @@
+<Doc as |doc|>
+  <doc.element @name="Input">
+    <JubileeInput
+      @text={{this.location}}
+      @placeholder="Add location"
+      @onChange={{action "onChange"}}
+      @update={{this.selectedUpdate}}
+      @isReadonly={{this.isReadonly}}
+     />
+
+  </doc.element>
+  <doc.controls>
+    <div local-class="control">
+      <JubileeSelect
+        class={{local-class "controlFirst"}}
+        @items={{this.updates}}
+        @selectedItem={{this.selectedUpdate}}
+        @onChange={{action (mut this.selectedUpdate)}} as |item|
+      >
+        {{item}}
+      </JubileeSelect>
+      @update
+    </div>
+    <div>
+      {{input type="checkbox" checked=this.isReadonly}}
+      @isReadonly
+    </div>
+  </doc.controls>
+  <doc.controls>
+    # of onChange events:
+    {{this.onChangeEvents}}
+  </doc.controls>
+  <doc.hbs @code={{this.code}} />
+  <doc.info>
+    <p>
+      This component adheres to DDAU. A two-way binding can be achieved via
+      the mut helper (see example above).
+    </p>
+    <p>
+      The configured @update ('on-blur', 'on-input')
+      determines when the @onChange event is triggered. 'on-blur' is default 
+      if nothing is set.
+    </p>
+  </doc.info>
+</Doc>

@@ -10,6 +10,7 @@ Router.map(function() {
   this.route('menu');
   this.route('doc-jubilee-text-field');
   this.route('doc-jubilee-select');
+  this.route('doc-jubilee-input');
 });
 
 export default Router;

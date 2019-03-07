@@ -1,0 +1,14 @@
+{{input
+  class=(local-class
+    (concat
+      "inputClass " (if this.media.isSmall "inputClassSmall" "inputClassLarge")
+    )
+  )
+  type="text"
+  readonly=this.computedIsReadonly
+  autocomplete="off"
+  value=this.onewayText
+  input=(action "onInput")
+  focus-out=(action "onBlur")
+  placeholder=this.computedPlaceholder
+}}
