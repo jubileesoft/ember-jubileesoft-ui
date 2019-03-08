@@ -25,6 +25,7 @@
 @media (min-width: mediaBreakpoint1) {
   .inner {
     flex-direction: row;
+    align-items: center;
     justify-content: space-evenly;
     flex-wrap: wrap;
   }
