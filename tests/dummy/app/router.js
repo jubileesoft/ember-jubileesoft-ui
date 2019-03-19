@@ -11,6 +11,7 @@ Router.map(function() {
   this.route('doc-jubilee-text-field');
   this.route('doc-jubilee-select');
   this.route('doc-jubilee-input');
+  this.route('doc-jubilee-switch');
 });
 
 export default Router;
