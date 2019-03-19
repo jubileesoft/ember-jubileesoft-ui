@@ -1,12 +1,6 @@
 <Doc as |doc|>
-  <doc.element @name="Select">
-    <JubileeSelect
-      @items={{this.items}}
-      @selectedItem={{this.selectedItem}}
-      @onChange={{action (mut this.selectedItem)}} as |name|
-    >
-      {{name}}
-    </JubileeSelect>
+  <doc.element @name="Input">
+    <JubileeSwitch />
   </doc.element>
   <doc.controls />
   <doc.hbs @code={{this.code}} />

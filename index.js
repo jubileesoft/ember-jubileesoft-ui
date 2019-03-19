@@ -55,6 +55,8 @@ module.exports = {
             'surface': config.surface || '#ffffff',
             'onSurface': config.onSurface || '#696d6e',
             'onSurfaceDark': config.onSurfaceDark || '#3e3f42',
+            
+            'separator': config.separator || 'rgba(0,0,0,0.12)',
           }
         }
       },

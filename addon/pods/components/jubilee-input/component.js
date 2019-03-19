@@ -2,6 +2,7 @@ import Component from '@ember/component';
 import layout from './template';
 import { computed } from '@ember/object';
 import { equal } from '@ember/object/computed';
+import { inject as service } from '@ember/service';
 
 const UPDATE = {
   ONBLUR: 'on-blur',
@@ -10,25 +11,32 @@ const UPDATE = {
 
 export default Component.extend({
   /*
-    @label {string}
-    @label2 {string}
     @text {string}
-    @update {string} - 'on-blur', 'on-input' (default)
-    @onChange {callback}
+    @placeholder {string}
+    @update {'on-blur', 'on-input'} - default is 'on-blur'
+    @onChange {callback(newValue)}
     @isReadonly {boolean}
   */
+
+  // #region Services
+  
+  media: service(),
+  
+  // #endregion Services
 
 
   // #region Properties
 
-  layout,
+  layout,   
 
-  hasAnyLabel: computed('label', 'label2', function () {
-    return this.label || this.label2;
+  computedPlaceholder: computed('placeholder', function () {
+    if (this.placeholder == undefined) {
+      return null;
+    }
+    return this.placeholder;
   }),
 
-  computedIsReadonly: equal('isReadonly', true),  
-
+  computedIsReadonly: equal('isReadonly', true),
 
   // #endregion Properties
 
@@ -48,7 +56,7 @@ export default Component.extend({
 
 
   // #region Actions
-
+  
   actions: {
     onInput(/*event*/) {
       if(this.update !== UPDATE.ONINPUT){
@@ -76,6 +84,6 @@ export default Component.extend({
       this.onChange(this.onewayText);
     },
   },
-
+  
   // #endregion Actions
 });

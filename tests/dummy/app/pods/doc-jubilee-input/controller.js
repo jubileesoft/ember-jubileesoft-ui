@@ -10,14 +10,8 @@ const UPDATE = {
 export default Controller.extend({
   // #region Properties
 
-  label: 'Company',
-  label2: '(max 30 characters)',
-  code: null,
-  showLabel: true,
-  showLabel2: true,
-  isReadonly: false,
   onChangeEvents: 0,
-  text: 'Fanatasy Ltd.',
+  isReadonly: false,
 
   // #endregion Properties
 
@@ -26,7 +20,6 @@ export default Controller.extend({
 
   init() {
     this._super(...arguments);
-
     this.set('updates', [UPDATE.ONBLUR, UPDATE.ONINPUT]);
     this.set('selectedUpdate', this.updates[0]);
 
@@ -40,7 +33,7 @@ export default Controller.extend({
 
   actions: {
     onChange(newValue) {
-      this.set('text', newValue);
+      this.set('location', newValue);
       this.incrementProperty('onChangeEvents');
     },
   },
@@ -51,30 +44,21 @@ export default Controller.extend({
   // #region Methods
 
   settingsChanged: observer(
-    'showLabel',
-    'showLabel2',
+    'selectedUpdate',
     'isReadonly',
-    'selectedUpdate',    
     function () {
       this.setHbs();
-    }),
+    }
+  ),
 
   setHbs() {
     const code = [];
 
-    code.push('<JubileeTextField');
+    code.push('<JubileeInput');
 
-    if (this.showLabel) {
-      code.push('  @label="' + this.label + '"');
-    }
+    code.push('  @text={{this.location}}');
 
-    if (this.showLabel2) {
-      code.push('  @label2="' + this.label2 + '"');
-    }
-
-    code.push('  @text={{this.name}}');
-
-    code.push('  @onChange={{action (mut this.name)}}');
+    code.push('  @onChange={{action (mut this.location)}}');
 
     if (this.selectedUpdate === UPDATE.ONINPUT) {
       code.push('  @update="' + UPDATE.ONINPUT + '"');

@@ -4,6 +4,20 @@ All notable changes to this project will be documented in this file. The format 
 
 An online documentation of the components is available [here](https://ui.jubileesoft.com/).
 
+## <span style="color: #0366d6;">0.5.0</span>
+
+Release Date: 2019-03-19
+
+##### Added
+
+- Add JubileeInput.
+- Add JubileeSwitch.
+
+##### Fixed
+
+- Fix minor things.
+
+
 ## <span style="color: #0366d6;">0.4.2</span>
 
 Release Date: 2019-03-05
