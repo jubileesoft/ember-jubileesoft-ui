@@ -18,7 +18,7 @@ export default Component.extend({
 
   // #region Hooks
 
-  didReceiveAttr() {
+  didReceiveAttrs() {
     if (this.isChecked === this._isChecked) {
       return;
     }

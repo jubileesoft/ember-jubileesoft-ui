@@ -4,6 +4,15 @@ All notable changes to this project will be documented in this file. The format 
 
 An online documentation of the components is available [here](https://ui.jubileesoft.com/).
 
+## <span style="color: #0366d6;">0.5.1</span>
+
+Release Date: 2019-03-22
+
+##### Fixed
+
+- [JubileeSwitch] Fix typo in hook name (hook was never called).
+- [JubileeSwitch] Fix title in docs.
+
 ## <span style="color: #0366d6;">0.5.0</span>
 
 Release Date: 2019-03-19
