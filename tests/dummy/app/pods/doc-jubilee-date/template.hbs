@@ -1,6 +1,10 @@
 <Doc as |doc|>
   <doc.element @name="Date">
-    
+    <JubileeDate
+      @locale="de"
+      @selected={{this.selected}}
+      @onSelect={{action (mut this.selected)}}
+    />
   </doc.element>
   <doc.controls />
   <doc.hbs @code={{this.code}} />

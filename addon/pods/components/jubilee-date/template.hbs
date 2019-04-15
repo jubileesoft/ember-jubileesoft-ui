@@ -1,1 +1,47 @@
-{{yield}}
+<div local-class={{concat "root" (unless this.media.isSmall " largeRoot")}}>
+  <JubileeInput
+      class={{local-class "dateInput"}}
+      onclick={{action (mut this.isCalendarOpen) true}}
+      {{!-- @text={{if this.internalSelection (luxon-format this.internalSelection)}} --}}
+      @isReadonly={{true}}
+  />
+  {{#if this.media.isSmall}}
+    <JubileeModal @open={{this.isCalendarOpen}}>
+      <div local-class="isSmallModal">
+        {{!-- ISSMALLMODAL HEADER --}}
+        <div>          
+          {{this.internalSelection}}
+        </div>
+        {{!-- ISSMALLMODAL CALENDAR --}}
+        <PowerCalendar class="demo-calendar-medium"
+          @center={{this.center}}
+          @onCenterChange={{action (mut this.center) value="date"}}
+          @selected={{this.internalSelection}}
+          @onSelect={{action (mut this.internalSelection) value="date"}} as |calendar|
+        >
+          <calendar.nav/>
+          <calendar.days/>
+        </PowerCalendar>
+        {{!-- ISSMALLMODAL BUTTONS --}}
+        <div local-class="isSmallModalButtons">
+          <JubileeButton onclick={{action this.onOk}} @text="OK" @invert={{true}}/>
+          <JubileeButton onclick={{action "onAbort"}} @text="Abbrechen" @invert={{true}}/>
+        </div>
+      </div>
+    </JubileeModal>
+  {{else}}
+    <div
+      class={{local-class (unless this.isCalendarOpen "collapsed")}} 
+      local-class="dateDropdown">
+      <PowerCalendar class="demo-calendar-medium"
+        @center={{this.center}}
+        @onCenterChange={{action (mut this.center) value="date"}}
+        @selected={{this.internalSelection}}
+        @onSelect={{action (mut this.internalSelection) value="date"}} as |calendar|
+      >
+        <calendar.nav/>
+        <calendar.days/>
+      </PowerCalendar>
+    </div>
+  {{/if}}
+</div>
