@@ -1,0 +1,31 @@
+@value primary, onPrimary, primaryLight from 'colors';
+
+.root {
+  height: 2.5rem; // 40px
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  cursor: pointer;
+  border-radius: 6px;
+  font-weight: 500;
+}
+
+.inverse {
+  color: primary;
+  background: transparent;
+}
+
+.inverse:hover {
+  background: primaryLight;
+}
+
+.nonInverse {
+  background: primary;
+  color: onPrimary;
+}
+
+.nonInverse:hover {
+  background: primaryLight;
+}
