@@ -17,9 +17,18 @@ export default Component.extend({
   layout,
 
   internalSelectionChanged: observer('internalSelection', function () {
-    if (!this.media.isSmall) {      
+    if (!this.media.isSmall) {
       this.onOk();
     }
+  }),
+
+  isCalendarOpenChanged: observer('isCalendarOpen', function () {
+    if (this.isCalendarOpen == true &&
+      this.media.isSmall &&
+      this.internalSelection == undefined) {
+      this.set('internalSelection', new Date());
+    }
+
   }),
 
   // #endregion Properties

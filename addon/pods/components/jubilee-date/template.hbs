@@ -2,18 +2,24 @@
   <JubileeInput
       class={{local-class "dateInput"}}
       onclick={{action (mut this.isCalendarOpen) true}}
-      {{!-- @text={{if this.internalSelection (luxon-format this.internalSelection)}} --}}
+      @text={{if this.internalSelection (luxon-format this.internalSelection "dd.MM.yyyy")}}
       @isReadonly={{true}}
   />
   {{#if this.media.isSmall}}
-    <JubileeModal @open={{this.isCalendarOpen}}>
+    <JubileeModal @open={{this.isCalendarOpen}} @maxContent={{false}}>
       <div local-class="isSmallModal">
         {{!-- ISSMALLMODAL HEADER --}}
-        <div>          
-          {{this.internalSelection}}
+        <div local-class="isSmallModalHeader">
+          <div>
+            {{luxon-format this.internalSelection "yyyy"}}
+          </div>
+          <div>
+            {{luxon-format this.internalSelection "ccc., d. LLL"}}
+          </div>          
         </div>
         {{!-- ISSMALLMODAL CALENDAR --}}
-        <PowerCalendar class="demo-calendar-medium"
+        <PowerCalendar 
+          class="demo-calendar-medium {{local-class "isSmallModalCalendar"}}"
           @center={{this.center}}
           @onCenterChange={{action (mut this.center) value="date"}}
           @selected={{this.internalSelection}}

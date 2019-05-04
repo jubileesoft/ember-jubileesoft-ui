@@ -13,6 +13,17 @@
   flex-direction: column;
 }
 
+.isSmallModalHeader {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 2rem;
+}
+
+.isSmallModalCalendar {
+  align-self: center;
+  margin-bottom: 2rem;
+}
+
 .isSmallModalButtons {
   display: flex;
   flex-direction: row-reverse;  
