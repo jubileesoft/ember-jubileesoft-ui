@@ -5,7 +5,7 @@
     translucentOverlay=true
     overlayPosition="parent"
     overlayClass=(local-class "overlay")
-    containerClass=(local-class "container")
+    containerClass=(local-class (concat "container" (if this.isMax " maxContainer")))
   }}
     <div local-class="yieldArea">
       {{yield}}
