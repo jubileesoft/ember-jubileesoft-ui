@@ -1,0 +1,40 @@
+.root {
+  composes: jubileeUi from '@jubileesoft/ember-jubileesoft-ui/styles/addon';
+}
+
+.largeRoot {
+  position: relative;
+  display: inline-block;
+}
+
+.isSmallModal {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.isSmallModalHeader {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 2rem;
+}
+
+.isSmallModalCalendar {
+  align-self: center;
+  margin-bottom: 2rem;
+}
+
+.isSmallModalButtons {
+  display: flex;
+  flex-direction: row-reverse;  
+}
+
+.dateDropdown {
+  position: absolute;
+  z-index: 1;
+  background: white;
+}
+
+.collapsed {
+  visibility: collapse; 
+}

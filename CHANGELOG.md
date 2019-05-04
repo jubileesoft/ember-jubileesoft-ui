@@ -4,6 +4,24 @@ All notable changes to this project will be documented in this file. The format 
 
 An online documentation of the components is available [here](https://ui.jubileesoft.com/).
 
+## <span style="color: #0366d6;">0.6.0</span>
+
+Release Date: 2019-05-05
+
+##### Added
+
+- Add JubileeButton
+- Add JubileeDate
+
+##### Changed
+
+- [JubileeModal] Add a `maxContent` property to allow the content of an overlay to NOT be maximized if configured: `@maxContent={{false}}`
+- Upgrade to ember-cli@3.9.0
+- Bump sass from 1.17.2 to 1.20.1
+- Bump ember-css-modules from 1.1.1 to 1.2.0
+- Bump @fortawesome/free-solid-svg-icons from 5.7.2 to 5.8.1
+
+
 ## <span style="color: #0366d6;">0.5.1</span>
 
 Release Date: 2019-03-22
