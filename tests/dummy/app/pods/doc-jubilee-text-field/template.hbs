@@ -13,11 +13,11 @@
   </doc.element>
   <doc.controls>
     <div>
-      {{input type="checkbox" checked=this.showLabel}}
+      <Input @type="checkbox" @checked={{this.showLabel}} onchange={{action "validateInputAndSetHbs" "showLabel"}}/>
       @label
     </div>
     <div>
-      {{input type="checkbox" checked=this.showLabel2}}
+      <Input @type="checkbox" @checked={{this.showLabel2}} onchange={{action "validateInputAndSetHbs" "showLabel2"}}/>
       @label2
     </div>
     <div local-class="control">
@@ -25,14 +25,14 @@
         class={{local-class "controlFirst"}}
         @items={{this.updates}}
         @selectedItem={{this.selectedUpdate}}
-        @onChange={{action (mut this.selectedUpdate)}} as |item|
+        @onChange={{action "setPropertyAndSetHbs" "selectedUpdate"}} as |item|
       >
         {{item}}
       </JubileeSelect>
       @update
     </div>
     <div>
-      {{input type="checkbox" checked=this.isReadonly}}
+      <Input @type="checkbox" @checked={{this.isReadonly}} onchange={{action "validateInputAndSetHbs" "isReadonly"}}/>
       @isReadonly
     </div>
   </doc.controls>
