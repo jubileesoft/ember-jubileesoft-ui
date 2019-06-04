@@ -1,7 +1,7 @@
 <div local-class={{concat "root" (unless this.media.isSmall " largeRoot")}}>
   <JubileeInput
       class={{local-class "dateInput"}}
-      onclick={{action (mut this.isCalendarOpen) true}}
+      onclick={{action "jubileeInputOnClick"}}
       @text={{if this.internalSelection (luxon-format this.internalSelection "dd.MM.yyyy")}}
       @isReadonly={{true}}
   />
@@ -23,7 +23,7 @@
           @center={{this.center}}
           @onCenterChange={{action (mut this.center) value="date"}}
           @selected={{this.internalSelection}}
-          @onSelect={{action (mut this.internalSelection) value="date"}} as |calendar|
+          @onSelect={{action "powerCalendarOnSelect" value="date"}} as |calendar|
         >
           <calendar.nav/>
           <calendar.days/>
@@ -43,7 +43,7 @@
         @center={{this.center}}
         @onCenterChange={{action (mut this.center) value="date"}}
         @selected={{this.internalSelection}}
-        @onSelect={{action (mut this.internalSelection) value="date"}} as |calendar|
+        @onSelect={{action "powerCalendarOnSelect" value="date"}} as |calendar|
       >
         <calendar.nav/>
         <calendar.days/>

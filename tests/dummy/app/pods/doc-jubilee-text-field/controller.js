@@ -1,6 +1,5 @@
 import Controller from '@ember/controller';
 import { join } from 'dummy/utils/common';
-import { observer } from '@ember/object';
 
 const UPDATE = {
   ONBLUR: 'on-blur',
@@ -43,21 +42,26 @@ export default Controller.extend({
       this.set('text', newValue);
       this.incrementProperty('onChangeEvents');
     },
+
+    /**
+     * @param {string} propName 
+     * @param {object} event 
+     */
+    validateInputAndSetHbs(propName, event) {
+      this.set(propName, event.target.checked);
+      this.setHbs();
+    },
+
+    setPropertyAndSetHbs(propName, propValue) {
+      this.set(propName, propValue);
+      this.setHbs();
+    },
   },
 
   // #endregion Actions
 
 
   // #region Methods
-
-  settingsChanged: observer(
-    'showLabel',
-    'showLabel2',
-    'isReadonly',
-    'selectedUpdate',    
-    function () {
-      this.setHbs();
-    }),
 
   setHbs() {
     const code = [];

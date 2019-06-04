@@ -12,6 +12,6 @@ module('Integration | Helper | luxon-format', function(hooks) {
 
     await render(hbs`{{luxon-format inputValue}}`);
 
-    assert.equal(this.element.textContent.trim(), '1234');
+    assert.dom(this.element).hasText('1234');
   });
 });
