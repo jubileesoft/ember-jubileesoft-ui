@@ -1,7 +1,6 @@
 import Component from '@ember/component';
 import layout from './template';
 import { inject as service } from '@ember/service';
-import { observer } from '@ember/object';
 
 export default Component.extend({
   // #region Services
@@ -15,21 +14,6 @@ export default Component.extend({
   // #region Properties
 
   layout,
-
-  internalSelectionChanged: observer('internalSelection', function () {
-    if (!this.media.isSmall) {
-      this.onOk();
-    }
-  }),
-
-  isCalendarOpenChanged: observer('isCalendarOpen', function () {
-    if (this.isCalendarOpen == true &&
-      this.media.isSmall &&
-      this.internalSelection == undefined) {
-      this.set('internalSelection', new Date());
-    }
-
-  }),
 
   // #endregion Properties
 
@@ -60,6 +44,21 @@ export default Component.extend({
       this.set('isCalendarOpen', false);
 
       this.set('internalSelection', this._selected);
+    },
+
+    powerCalendarOnSelect(value) {
+      this.set('internalSelection', value);
+      if (!this.media.isSmall) {
+        this.onOk();
+      }
+    },
+
+    jubileeInputOnClick() {
+      this.set('isCalendarOpen', true);
+
+      if (this.media.isSmall && this.internalSelection == undefined) {
+        this.set('internalSelection', new Date());
+      }
     },
   },
 
