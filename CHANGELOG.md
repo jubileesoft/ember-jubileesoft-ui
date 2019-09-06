@@ -6,6 +6,14 @@ An online documentation of the components is available [here](https://ui.jubilee
 
 ## [Unreleased]
 
+
+
+## <span style="color: #0366d6;">0.6.1</span>
+
+Release Date: 2019-09-06
+
+##### Changed
+
 - upgrade ember-cli from 3.9.0 to 3.12.0
 - bump sass from 1.20.1 to 1.22.10
 - bump luxon from 1.12.1 to 1.17.2
