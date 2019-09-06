@@ -1,5 +1,5 @@
 import Service from '@ember/service';
-import { observer, computed } from '@ember/object';
+import { computed } from '@ember/object';
 
 export default Service.extend({
   // #region Fields
@@ -52,14 +52,6 @@ export default Service.extend({
       this.set('isSmall', newIsSmall);
     }
   },
-
-  _isSmallChanged: observer('isSmall', function () {
-    if (this.isSmall) {
-      console.log('small');
-    } else {
-      console.log('large');
-    }
-  }),
 
   // #endreegion Private Methods
 });

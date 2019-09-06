@@ -4,6 +4,27 @@ All notable changes to this project will be documented in this file. The format 
 
 An online documentation of the components is available [here](https://ui.jubileesoft.com/).
 
+## [Unreleased]
+
+
+
+## <span style="color: #0366d6;">0.6.1</span>
+
+Release Date: 2019-09-06
+
+##### Changed
+
+- upgrade ember-cli from 3.9.0 to 3.12.0
+- bump sass from 1.20.1 to 1.22.10
+- bump luxon from 1.12.1 to 1.17.2
+- bump @types/luxon from 1.12.0 to 1.15.2
+- bump ember-power-calendar from 0.13.1 to 0.14.3
+- bump ember-modal-dialog from 3.0.0-beta.3 to 3.0.0-beta.4
+- bump ember-css-modules from 1.2.0 to 1.2.1
+- bump ember-cli-sass from 10.0.0 to 10.0.1
+- bump @fontawesome/ember-fontawesome from 0.1.13 to 0.1.14
+- bump @fontawesome/free-solid-svg-icons from 5.8.1 to 5.10.2
+
 ## <span style="color: #0366d6;">0.6.0</span>
 
 Release Date: 2019-05-05

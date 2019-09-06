@@ -15,14 +15,15 @@
         class={{local-class "controlFirst"}}
         @items={{this.updates}}
         @selectedItem={{this.selectedUpdate}}
-        @onChange={{action (mut this.selectedUpdate)}} as |item|
+        @onChange={{action "setPropertyAndSetHbs" "selectedUpdate"}} as |item|
       >
         {{item}}
       </JubileeSelect>
       @update
     </div>
     <div>
-      {{input type="checkbox" checked=this.isReadonly}}
+      <Input  
+      @type="checkbox" @checked={{this.isReadonly}} onchange={{action "validateInputAndSetHbs" "isReadonly"}}/>
       @isReadonly
     </div>
   </doc.controls>
