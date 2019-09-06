@@ -26,23 +26,23 @@
     "test:all": "ember try:each"
   },
   "dependencies": {
-    "@fortawesome/ember-fontawesome": "^0.1.13",
-    "@fortawesome/free-solid-svg-icons": "^5.8.1",
+    "@fortawesome/ember-fontawesome": "^0.1.14",
+    "@fortawesome/free-solid-svg-icons": "^5.10.2",
     "ember-cli-babel": "^7.7.3",
     "ember-cli-htmlbars": "^3.0.1",
-    "ember-cli-sass": "^10.0.0",
-    "ember-css-modules": "^1.2.0",
+    "ember-cli-sass": "^10.0.1",
+    "ember-css-modules": "^1.2.1",
     "ember-css-modules-sass": "^1.0.1",
-    "ember-modal-dialog": "^3.0.0-beta.3",
-    "ember-power-calendar": "^0.13.1",
+    "ember-modal-dialog": "^3.0.0-beta.4",
+    "ember-power-calendar": "^0.14.3",
     "ember-power-calendar-luxon": "^0.1.8",
     "ember-truth-helpers": "^2.1.0",
-    "luxon": "^1.12.1",
-    "sass": "^1.20.1"
+    "luxon": "^1.17.2",
+    "sass": "^1.22.10"
   },
   "devDependencies": {
     "@ember/optional-features": "^0.7.0",
-    "@types/luxon": "^1.12.0",
+    "@types/luxon": "^1.15.2",
     "broccoli-asset-rev": "^3.0.0",
     "ember-cli": "~3.12.0",
     "ember-cli-dependency-checker": "^3.0.0",
