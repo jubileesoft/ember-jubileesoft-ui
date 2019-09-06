@@ -25,8 +25,8 @@
           @selected={{this.internalSelection}}
           @onSelect={{action "powerCalendarOnSelect" value="date"}} as |calendar|
         >
-          <calendar.nav/>
-          <calendar.days/>
+          <calendar.Nav/>
+          <calendar.Days/>
         </PowerCalendar>
         {{!-- ISSMALLMODAL BUTTONS --}}
         <div local-class="isSmallModalButtons">
@@ -45,8 +45,8 @@
         @selected={{this.internalSelection}}
         @onSelect={{action "powerCalendarOnSelect" value="date"}} as |calendar|
       >
-        <calendar.nav/>
-        <calendar.days/>
+        <calendar.Nav/>
+        <calendar.Days/>
       </PowerCalendar>
     </div>
   {{/if}}
