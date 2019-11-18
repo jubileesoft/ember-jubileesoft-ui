@@ -10,6 +10,7 @@
 
 .root {
   composes: jubileeUi from '@jubileesoft/ember-jubileesoft-ui/styles/addon';
+  width: 100%;
 }
 
 .largeRoot {

@@ -13,14 +13,5 @@ module('Integration | Component | jubilee-switch', function(hooks) {
     await render(hbs`{{jubilee-switch}}`);
 
     assert.dom(this.element).hasText('');
-
-    // Template block usage:
-    await render(hbs`
-      {{#jubilee-switch}}
-        template block text
-      {{/jubilee-switch}}
-    `);
-
-    assert.dom(this.element).hasText('template block text');
   });
 });

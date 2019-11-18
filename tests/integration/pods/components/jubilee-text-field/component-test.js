@@ -13,14 +13,5 @@ module('Integration | Component | jubilee-text-field', function(hooks) {
     await render(hbs`{{jubilee-text-field}}`);
 
     assert.dom(this.element).hasText('');
-
-    // Template block usage:
-    await render(hbs`
-      {{#jubilee-text-field}}
-        template block text
-      {{/jubilee-text-field}}
-    `);
-
-    assert.dom(this.element).hasText('template block text');
   });
 });
