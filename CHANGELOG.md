@@ -6,9 +6,15 @@ An online documentation of the components is available [here](https://ui.jubilee
 
 ## [Unreleased]
 
+##### Fixed
+
+- Fix width in JubileeSelect
+
 ##### Changed
 
 - Switch to yarn
+- Configure repository to use prettier
+- Bump ember-cli from 3.12.0to 3.14.0
 
 ## <span style="color: #0366d6;">0.6.1</span>
 
