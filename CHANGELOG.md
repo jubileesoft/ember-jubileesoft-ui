@@ -6,7 +6,9 @@ An online documentation of the components is available [here](https://ui.jubilee
 
 ## [Unreleased]
 
+##### Changed
 
+- Switch to yarn
 
 ## <span style="color: #0366d6;">0.6.1</span>
 
