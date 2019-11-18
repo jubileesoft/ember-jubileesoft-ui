@@ -13,14 +13,5 @@ module('Integration | Component | jubilee-label', function(hooks) {
     await render(hbs`{{jubilee-label}}`);
 
     assert.dom(this.element).hasText('');
-
-    // Template block usage:
-    await render(hbs`
-      {{#jubilee-label}}
-        template block text
-      {{/jubilee-label}}
-    `);
-
-    assert.dom(this.element).hasText('template block text');
   });
 });

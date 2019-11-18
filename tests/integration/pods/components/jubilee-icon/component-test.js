@@ -13,14 +13,5 @@ module('Integration | Component | jubilee-icon', function(hooks) {
     await render(hbs`{{jubilee-icon}}`);
 
     assert.dom(this.element).hasText('');
-
-    // Template block usage:
-    await render(hbs`
-      {{#jubilee-icon}}
-        template block text
-      {{/jubilee-icon}}
-    `);
-
-    assert.dom(this.element).hasText('template block text');
   });
 });
