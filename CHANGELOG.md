@@ -6,6 +6,10 @@ An online documentation of the components is available [here](https://ui.jubilee
 
 ## [Unreleased]
 
+##### Changed
+
+- [#6](https://github.com/jubileesoft/ember-jubileesoft-ui/pull/6) Migrate to Octane
+
 ## <span style="color: #0366d6;">0.6.2</span>
 
 Release Date: 2019-11-18
