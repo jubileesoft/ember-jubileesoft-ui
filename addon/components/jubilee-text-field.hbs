@@ -1,0 +1,14 @@
+<div ...attributes local-class="root">
+  {{#if this.hasAnyLabel}}
+    <JubileeLabel @label={{@label}} @label2={{@label2}} />
+  {{/if}}
+  <input
+    readonly={{this.computedIsReadonly}}
+    class={{local-class "input"}}
+    type="text"
+    autocomplete="off"
+    value={{@text}}
+    {{on "blur" this.onBlur}}
+    {{on "input" this.onInput}}
+  />
+</div>

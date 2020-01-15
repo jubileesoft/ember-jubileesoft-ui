@@ -1,49 +1,43 @@
 import Service from '@ember/service';
-import { computed } from '@ember/object';
+import { tracked } from '@glimmer/tracking';
+import { action } from '@ember/object';
 
-export default Service.extend({
+export default class MediaService extends Service {
   // #region Fields
 
-  _mediaBreakpoint: 940,
+  _mediaBreakpoint = 940;
 
   // #endreegion Fields
 
-
   // #region Properties
 
-  isSmall: null,
+  @tracked isSmall = null;
 
-  isLarge: computed('isSmall', function () {
+  get isLarge() {
     if (this.isSmall == null) {
       return null;
     }
     return !this.isSmall;
-  }),
+  }
 
   // #endregion Properties
 
-
   // #region Hooks
 
-  init() {
-    this._super(...arguments);
-    window.addEventListener('resize', this._onResize.bind(this));
+  constructor() {
+    super(...arguments);
+    window.addEventListener('resize', this._onResize);
     this._set();
-  },
-
-  willDestroyElement() {
-    this._super(...arguments);
-    window.removeEventListener('resize', this._onResize.bind(this));
-  },
+  }
 
   // #endreegion Hooks
 
-
   // #region Private Methods
 
+  @action
   _onResize() {
     this._set();
-  },
+  }
 
   _set() {
     const newIsSmall = window.innerWidth <= this._mediaBreakpoint;
@@ -51,7 +45,7 @@ export default Service.extend({
     if (this.isSmall != newIsSmall) {
       this.set('isSmall', newIsSmall);
     }
-  },
+  }
 
   // #endreegion Private Methods
-});
+}

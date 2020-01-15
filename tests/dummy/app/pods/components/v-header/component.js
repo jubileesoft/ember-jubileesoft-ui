@@ -1,30 +1,20 @@
-import Component from '@ember/component';
-import layout from './template';
+import Component from '@glimmer/component';
 import { inject as service } from '@ember/service';
+import { action } from '@ember/object';
 
-export default Component.extend({
+export default class VHeaderComponent extends Component {
   // #region Services
-  
-  router: service(),
-  
+  @service
+  router;
+
   // #endregion Services
 
-
-  // #region Properties
-
-  layout,  
-  localClassNames: 'root',
-
-  // #endregion Properties
-
-
   // #region Actions
-  
-  actions: {
-    menuOnClick() {
-      this.router.transitionTo('menu');
-    },
-  },
-  
+
+  @action
+  menuOnClick() {
+    this.router.transitionTo('menu');
+  }
+
   // #endregion Actions
-});
+}
