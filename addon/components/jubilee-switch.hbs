@@ -1,0 +1,13 @@
+<div local-class="root">
+  <div local-class="container" role="button" {{on "click" this.pressed}}>
+    <input
+      class={{local-class "input"}}
+      type="checkbox"
+      checked={{@isChecked}}
+      readonly={{this.isDisabled}}
+    />
+    <div local-class="switch">
+      <div local-class="switchKnob"></div>
+    </div>
+  </div>
+</div>
