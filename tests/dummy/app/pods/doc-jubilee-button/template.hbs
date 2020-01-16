@@ -1,15 +1,22 @@
 <Doc as |doc|>
   <doc.element @name="Button">
-    <JubileeButton
-      @text="Speichern"
-      @invert={{false}}
-    />
+    <JubileeButton @text="Load Data" @invert={{this.isInvert}} />
   </doc.element>
-  <doc.controls />
+  <doc.controls>
+    <div>
+      {{#if this.isInvert}}
+        <input
+          type="checkbox"
+          checked="checked"
+          {{on "click" this.isInvertChange}}
+        />
+        @invert
+      {{else}}
+        <input type="checkbox" {{on "click" this.isInvertChange}} />
+        @invert
+      {{/if}}
+    </div>
+  </doc.controls>
   <doc.hbs @code={{this.code}} />
-  <doc.info>
-    <p>
-      This component adheres to DDAU.
-    </p>
-  </doc.info>
+  <doc.info />
 </Doc>

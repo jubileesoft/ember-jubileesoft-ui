@@ -2,6 +2,7 @@
   ...attributes
   local-class={{concat "root" (unless this.media.isSmall " largeRoot")}}
   {{did-update this.didUpdateLocale @locale}}
+  {{did-insert this.didInsert}}
 >
   <JubileeInput
     class={{local-class "dateInput"}}

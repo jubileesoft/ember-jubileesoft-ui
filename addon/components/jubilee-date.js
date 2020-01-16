@@ -19,6 +19,13 @@ export default class JubileeDateComponent extends Component {
   // #endregion Properties
 
   // #region Hooks
+
+  @action
+  didInsert() {
+    this.powerCalendar.set('locale', this.args.locale);
+  }
+
+  @action
   didUpdateLocale() {
     this.powerCalendar.set('locale', this.args.locale);
   }
