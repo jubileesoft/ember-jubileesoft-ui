@@ -6,16 +6,25 @@ An online documentation of the components is available [here](https://ui.jubilee
 
 ## [Unreleased]
 
+## <span style="color: #0366d6;">1.0.0</span>
+
+Release Date: 2020-01-17
+
 ##### Changed
 
 - [#6](https://github.com/jubileesoft/ember-jubileesoft-ui/pull/6) Migrate to Ember Octane (part 1)
-- []()Migrate to Ember Octane (part 2)
+- Migrate to Ember Octane (part 2)
   - Bump ember-cli from 3.14.0 to 3.15.1
   - Bump ember-css-modules from 1.2.1 to 1.3.0-beta.1
   - Add dependency @ember/render-modifier 1.0.2
   - Add dependency uuidv4
+  - Add dependency ember-cli-app-version
+  - Add dependency ember-intl
   - Make every component into a glimmer component
-  - Make every service into a native class service
+  - Make every service, controller and router into a native class "thingy"
+  - Update missing docs
+  - Add version to home view
+
 
 ## <span style="color: #0366d6;">0.6.2</span>
 
