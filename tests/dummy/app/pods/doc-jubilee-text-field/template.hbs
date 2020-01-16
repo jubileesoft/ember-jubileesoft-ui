@@ -6,18 +6,25 @@
       @label2={{if this.showLabel2 this.label2}}
       @text={{this.text}}
       @isReadonly={{this.isReadonly}}
-      @onChange={{action "onChange"}}
+      @onChange={{this.onChange}}
       @update={{this.selectedUpdate}}
-     />
-
+    />
   </doc.element>
   <doc.controls>
     <div>
-      <Input @type="checkbox" @checked={{this.showLabel}} onchange={{action "validateInputAndSetHbs" "showLabel"}}/>
+      <Input
+        @type="checkbox"
+        @checked={{this.showLabel}}
+        onchange={{fn this.validateInputAndSetHbs "showLabel"}}
+      />
       @label
     </div>
     <div>
-      <Input @type="checkbox" @checked={{this.showLabel2}} onchange={{action "validateInputAndSetHbs" "showLabel2"}}/>
+      <Input
+        @type="checkbox"
+        @checked={{this.showLabel2}}
+        onchange={{fn this.validateInputAndSetHbs "showLabel2"}}
+      />
       @label2
     </div>
     <div local-class="control">
@@ -25,14 +32,18 @@
         class={{local-class "controlFirst"}}
         @items={{this.updates}}
         @selectedItem={{this.selectedUpdate}}
-        @onChange={{action "setPropertyAndSetHbs" "selectedUpdate"}} as |item|
+        @onChange={{fn this.setPropertyAndSetHbs "selectedUpdate"}} as |item|
       >
         {{item}}
       </JubileeSelect>
       @update
     </div>
     <div>
-      <Input @type="checkbox" @checked={{this.isReadonly}} onchange={{action "validateInputAndSetHbs" "isReadonly"}}/>
+      <Input
+        @type="checkbox"
+        @checked={{this.isReadonly}}
+        onchange={{fn this.validateInputAndSetHbs "isReadonly"}}
+      />
       @isReadonly
     </div>
   </doc.controls>

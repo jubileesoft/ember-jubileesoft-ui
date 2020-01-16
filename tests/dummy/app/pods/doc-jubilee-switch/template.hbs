@@ -1,6 +1,6 @@
 <Doc as |doc|>
   <doc.element @name="Switch">
-    <JubileeSwitch />
+    <JubileeSwitch @isChecked={{this.isChecked}} @onChange={{fn (mut this.isChecked)}}/>
   </doc.element>
   <doc.controls />
   <doc.hbs @code={{this.code}} />

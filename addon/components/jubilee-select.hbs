@@ -1,0 +1,62 @@
+<div
+  ...attributes
+  local-class={{concat "root" (unless this.media.isSmall " largeRoot")}}
+  {{did-insert this.adjustDropdownWidth}}
+>
+  <div
+    id={{this.triggerId}}
+    local-class="trigger"
+    role="button"
+    {{action "triggerClicked"}}
+  >
+    <div local-class="content">
+      {{yield @selectedItem}}
+    </div>
+    <div local-class="caret">
+      {{fa-icon "caret-down"}}
+    </div>
+  </div>
+  {{! DROPDOWM }}
+  {{#if this.media.isSmall}}
+    <JubileeModal @open={{this.isDropdownOpen}}>
+      {{#each @items as |item|}}
+        <div
+          role="button"
+          local-class="smallItemContainer"
+          {{action "itemClicked" item}}
+        >
+          <div
+            local-class={{concat
+              "smallItem"
+              (if (eq item @selectedItem) " selectedColor")
+            }}
+          >
+            {{yield item}}
+          </div>
+          {{#if (eq item @selectedItem)}}
+            <div local-class="smallItemSelected">
+              {{fa-icon "check"}}
+            </div>
+          {{/if}}
+        </div>
+      {{/each}}
+    </JubileeModal>
+  {{else}}
+    <div
+      class={{local-class (unless isDropdownOpen "collapsed")}}
+      id={{this.dropdownId}}
+      local-class="dropdown"
+    >
+      {{#each @items as |item|}}
+        <div
+          class={{local-class (if (eq item @selectedItem) "itemSelected")}}
+          role="button"
+          local-class="item"
+          {{action "itemClicked" item}}
+        >
+          {{yield item}}
+        </div>
+      {{/each}}
+    </div>
+  {{/if}}
+</div>

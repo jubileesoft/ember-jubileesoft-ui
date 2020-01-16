@@ -1,0 +1,15 @@
+<input
+  ...attributes
+  class={{local-class
+    (concat
+      "inputClass " (if this.media.isSmall "inputClassSmall" "inputClassLarge")
+    )
+  }}
+  type="text"
+  readonly={{this.computedIsReadonly}}
+  autocomplete="off"
+  value={{@text}}
+  {{on "blur" this.onBlur}}
+  {{on "input" this.onInput}}
+  placeholder={{@placeholder}}
+/>

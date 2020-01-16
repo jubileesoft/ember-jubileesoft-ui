@@ -1,8 +1,15 @@
-<div local-class="header">
-  <div local-class="brand" class="noSelect">
-    {{#link-to "index" tagName="div"}}
-      Jubileesoft UI
-    {{/link-to}}
+<div local-class="root">
+  <div local-class="header">
+    <div local-class="brand" class="noSelect" {{on "click" this.goHome}}>
+      <div local-class="column">
+        <div>
+          Jubileesoft UI
+        </div>
+        <div local-class="version">
+          {{app-version versionOnly=true}}
+        </div>
+      </div>
+    </div>
+    <JubileeIcon @fa="bars" @size="2x" {{on "click" this.menuOnClick}} />
   </div>
-  <JubileeIcon onclick={{action "menuOnClick"}} @fa="bars" @size="2x" />
 </div>

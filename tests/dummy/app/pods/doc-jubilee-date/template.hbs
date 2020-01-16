@@ -1,16 +1,28 @@
 <Doc as |doc|>
   <doc.element @name="Date">
     <JubileeDate
-      @locale="de"
+      @locale={{this.selectedLocale}}
       @selected={{this.selected}}
-      @onSelect={{action (mut this.selected)}}
+      @onSelect={{fn (mut this.selected)}}
     />
   </doc.element>
-  <doc.controls />
+  <doc.controls>
+    <div>
+      <JubileeSelect
+        @items={{this.locales}}
+        @selectedItem={{this.selectedLocale}}
+        @onChange={{this.onChangeSelectedLocale}} as |name|
+      >
+        {{name}}
+      </JubileeSelect>
+      @locale
+    </div>
+  </doc.controls>
   <doc.hbs @code={{this.code}} />
   <doc.info>
     <p>
-      This component adheres to DDAU.
+      This component adheres to DDAU. A two-way binding can be achieved via
+      the mut helper (see example above).
     </p>
   </doc.info>
 </Doc>
