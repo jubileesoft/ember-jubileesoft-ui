@@ -8,7 +8,7 @@
     class={{local-class "dateInput"}}
     @text={{if
       this.internalSelection
-      (luxon-format this.internalSelection "dd.MM.yyyy")
+      (format-date this.internalSelection locale=@locale)
     }}
     @isReadonly={{true}}
     {{on "click" this.jubileeInputOnClick}}
@@ -19,10 +19,12 @@
         {{! ISSMALLMODAL HEADER }}
         <div local-class="isSmallModalHeader">
           <div>
-            {{luxon-format this.internalSelection "yyyy"}}
+            {{format-date this.internalSelection locale=@locale year="numeric"}}
           </div>
           <div>
-            {{luxon-format this.internalSelection "ccc., d. LLL"}}
+            {{format-date this.internalSelection locale=@locale weekday='short'}},
+            {{format-date this.internalSelection locale=@locale day='numeric'}}.
+            {{format-date this.internalSelection locale=@locale month='long'}}
           </div>
         </div>
         {{! ISSMALLMODAL CALENDAR }}

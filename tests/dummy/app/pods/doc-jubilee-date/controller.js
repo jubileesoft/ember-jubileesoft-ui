@@ -8,7 +8,7 @@ export default class DocJubileeDateControler extends Controller {
 
   @tracked code;
   locales = ['de', 'en-us', 'en-gb'];
-  @tracked selectedLocale = this.locales[0];
+  @tracked selectedLocale;
 
   // #endregion Properties
 
@@ -16,6 +16,8 @@ export default class DocJubileeDateControler extends Controller {
 
   constructor() {
     super(...arguments);
+
+    this.selectedLocale = this.locales[0];
     this.setHbs();
   }
 
