@@ -25,7 +25,10 @@ export default class JubileeTextFieldComponent extends Component {
   // #region Properties
 
   get hasAnyLabel() {
-    return this.args.label || this.args.label2;
+    return (
+      typeof this.args.label !== 'undefined' ||
+      typeof this.args.label2 !== 'undefined'
+    );
   }
 
   get computedIsReadonly() {

@@ -28,14 +28,27 @@
     font-weight: 500;
 
     cursor: pointer;
+
+    a:link {
+        text-decoration: none;
+        color: onPrimary;
+      }
+      
+      a:visited {
+        text-decoration: none;
+        color: onPrimary;
+      }
+      
+      a:hover {
+        text-decoration: none;
+        color: onPrimary;
+      }
+      
+      a:active {
+        text-decoration: none;
+        color: onPrimary;
+      }
 }
-
-
-// @media only screen and (max-width: 0px) {
-//     .header {
-//         width: 100%;
-//     }
-// }
 
 @media only screen and (max-width: mediaBreakpoint1) {
     .header {

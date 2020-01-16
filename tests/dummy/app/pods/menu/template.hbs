@@ -3,23 +3,35 @@
     Form Components
   </div>
   <ul>
-    {{#link-to "doc-jubilee-button" tagName="li"}}
-      Button
-    {{/link-to}}
-    {{#link-to "doc-jubilee-date" tagName="li"}}
-      Date
-    {{/link-to}}
-    {{#link-to "doc-jubilee-input" tagName="li"}}
-      Input
-    {{/link-to}}
-    {{#link-to "doc-jubilee-select" tagName="li"}}
-      Select
-    {{/link-to}}
-    {{#link-to "doc-jubilee-switch" tagName="li"}}
-      Switch
-    {{/link-to}}
-    {{#link-to "doc-jubilee-text-field" tagName="li"}}
-      TextField
-    {{/link-to}}
+    <li>
+      <LinkTo @route="doc-jubilee-button">
+        Button
+      </LinkTo>
+    </li>
+    <li>
+      <LinkTo @route="doc-jubilee-date">
+        Date
+      </LinkTo>
+    </li>
+    <li>
+      <LinkTo @route="doc-jubilee-input">
+        Input
+      </LinkTo>
+    </li>
+    <li>
+      <LinkTo @route="doc-jubilee-select">
+        Select
+      </LinkTo>
+    </li>
+    <li>
+      <LinkTo @route="doc-jubilee-switch">
+        Switch
+      </LinkTo>
+    </li>
+    <li>
+      <LinkTo @route="doc-jubilee-text-field">
+        TextField
+      </LinkTo>
+    </li>
   </ul>
 </div>

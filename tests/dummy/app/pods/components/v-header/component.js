@@ -4,8 +4,7 @@ import { action } from '@ember/object';
 
 export default class VHeaderComponent extends Component {
   // #region Services
-  @service
-  router;
+  @service router;
 
   // #endregion Services
 

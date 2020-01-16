@@ -3,11 +3,10 @@
     <JubileeInput
       @text={{this.location}}
       @placeholder="Add location"
-      @onChange={{action "onChange"}}
+      @onChange={{this.onChange}}
       @update={{this.selectedUpdate}}
       @isReadonly={{this.isReadonly}}
-     />
-
+    />
   </doc.element>
   <doc.controls>
     <div local-class="control">
@@ -15,15 +14,18 @@
         class={{local-class "controlFirst"}}
         @items={{this.updates}}
         @selectedItem={{this.selectedUpdate}}
-        @onChange={{action "setPropertyAndSetHbs" "selectedUpdate"}} as |item|
+        @onChange={{fn this.setPropertyAndSetHbs "selectedUpdate"}} as |item|
       >
         {{item}}
       </JubileeSelect>
       @update
     </div>
     <div>
-      <Input  
-      @type="checkbox" @checked={{this.isReadonly}} onchange={{action "validateInputAndSetHbs" "isReadonly"}}/>
+      <Input
+        @type="checkbox"
+        @checked={{this.isReadonly}}
+        onchange={{fn this.validateInputAndSetHbs "isReadonly"}}
+      />
       @isReadonly
     </div>
   </doc.controls>
