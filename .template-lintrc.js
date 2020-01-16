@@ -3,6 +3,7 @@
 module.exports = {
   extends: 'octane',
   rules: {
-    'no-bare-strings': false
+    'no-bare-strings': false,
+    'no-curly-component-invocation': { allow: ['app-version'] }
   }
 };

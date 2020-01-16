@@ -1,9 +1,14 @@
 <div local-class="root">
   <div local-class="header">
-    <div local-class="brand" class="noSelect">
-      <LinkTo @route="index">
-        Jubileesoft UI
-      </LinkTo>
+    <div local-class="brand" class="noSelect" {{on "click" this.goHome}}>
+      <div local-class="column">
+        <div>
+          Jubileesoft UI
+        </div>
+        <div local-class="version">
+          {{app-version versionOnly=true}}
+        </div>
+      </div>
     </div>
     <JubileeIcon @fa="bars" @size="2x" {{on "click" this.menuOnClick}} />
   </div>
