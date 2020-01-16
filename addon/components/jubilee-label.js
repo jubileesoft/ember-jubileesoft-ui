@@ -12,7 +12,7 @@ export default class JubileeLabelComponent extends Component {
   }
 
   get hasAnyLabel() {
-    return this.label || this.label2;
+    return this.hasLabel || this.hasLabel2;
   }
 
   // #endregion Properties

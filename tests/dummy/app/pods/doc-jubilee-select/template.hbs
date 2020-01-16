@@ -3,7 +3,7 @@
     <JubileeSelect
       @items={{this.items}}
       @selectedItem={{this.selectedItem}}
-      @onChange={{action (mut this.selectedItem)}} as |name|
+      @onChange={{fn (mut this.selectedItem)}} as |name|
     >
       {{name}}
     </JubileeSelect>

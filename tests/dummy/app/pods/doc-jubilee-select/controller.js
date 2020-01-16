@@ -1,36 +1,42 @@
 import Controller from '@ember/controller';
 import { join } from 'dummy/utils/common';
+import { tracked } from '@glimmer/tracking';
 
-export default Controller.extend({
+export default class DocJubileeSelectController extends Controller {
+  // #region Properties
+
+  @tracked code;
+  @tracked items = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
+  @tracked selectedItem;
+
+  // #endregion Properties
+
   // #region Hooks
-  
-  init() {
-    this._super(...arguments);
-    this.set('items', ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday']);
-    this.set('selectedItem', this.items[2]);
+
+  constructor() {
+    super(...arguments);
+    this.selectedItem = this.items[2];
 
     this.setHbs();
-  },
-  
+  }
+
   // #endregion Hooks
 
-
   // #region Methods
-  
+
   setHbs() {
     const code = [];
 
     code.push('<JubileeSelect');
     code.push('  @items={{this.weekdays}}');
     code.push('  @selectedItem={{this.selectedWeekday}}');
-    code.push('  @onChange={{action (mut this.selectedWeekday)}}');
-    code.push('as |name|');
+    code.push('  @onChange={{fn (mut this.selectedWeekday)}} as |name|');
     code.push('>');
     code.push('  {{name}}');
     code.push('</JubileeSelect>');
 
-    this.set('code', join(code));
-  },
-  
+    this.code = join(code);
+  }
+
   // #endregion Methods
-});
+}

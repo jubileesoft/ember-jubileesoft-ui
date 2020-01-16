@@ -4,8 +4,8 @@ import { action } from '@ember/object';
 
 export default class VHeaderComponent extends Component {
   // #region Services
-  @service
-  router;
+
+  @service router;
 
   // #endregion Services
 
@@ -14,6 +14,11 @@ export default class VHeaderComponent extends Component {
   @action
   menuOnClick() {
     this.router.transitionTo('menu');
+  }
+
+  @action
+  goHome() {
+    this.router.transitionTo('index');
   }
 
   // #endregion Actions
