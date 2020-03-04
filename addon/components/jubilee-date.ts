@@ -2,19 +2,32 @@ import Component from '@glimmer/component';
 import { inject as service } from '@ember/service';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
+import Media from '@jubileesoft/ember-jubileesoft-ui/services/media';
 
-export default class JubileeDateComponent extends Component {
+interface OnSelectFunc {
+  (internalSelecion: Date | null): void;
+}
+
+interface JubileeDateArgs {
+  locale: string;
+  selected: any;
+  onSelect: OnSelectFunc;
+}
+
+export default class JubileeDateComponent extends Component<JubileeDateArgs> {
   // #region Services
 
-  @service powerCalendar;
-  @service media;
+  @service powerCalendar: any;
+  @service media!: Media;
 
   // #endregion Services
 
   // #region Properties
 
-  @tracked internalSelection;
-  @tracked isCalendarOpen;
+  @tracked internalSelection: Date | null = null;
+  @tracked isCalendarOpen: boolean = false;
+
+  private _selected: Date | null = null;
 
   // #endregion Properties
 
@@ -46,7 +59,7 @@ export default class JubileeDateComponent extends Component {
   }
 
   @action
-  powerCalendarOnSelect(value) {
+  powerCalendarOnSelect(value: Date) {
     this.internalSelection = value;
     if (!this.media.isSmall) {
       this.onOk();

@@ -4,7 +4,15 @@ All notable changes to this project will be documented in this file. The format 
 
 An online documentation of the components is available [here](https://ui.jubileesoft.com/).
 
-## [Unreleased]
+## <span style="color: #0366d6;">1.0.1</span>
+
+Release Date: 2020-03-04
+
+##### Changed
+
+- Upgrade ember-cli from 3.15.1 to 3.16.0
+- Add Typescript
+- Migrate components and service to Typescript
 
 ## <span style="color: #0366d6;">1.0.0</span>
 

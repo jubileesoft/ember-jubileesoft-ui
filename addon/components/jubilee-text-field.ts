@@ -6,7 +6,20 @@ const UPDATE = {
   ONINPUT: 'on-input'
 };
 
-export default class JubileeTextFieldComponent extends Component {
+interface OnChangeFunc {
+  (newValue: string): void;
+}
+
+interface JubileeTextFieldArgs {
+  label?: string;
+  label2?: string;
+  isReadonly?: boolean;
+  update?: string;
+  onChange: OnChangeFunc;
+  text?: string;
+}
+
+export default class JubileeTextField extends Component<JubileeTextFieldArgs> {
   /*
     @label {string}
     @label2 {string}
@@ -40,23 +53,23 @@ export default class JubileeTextFieldComponent extends Component {
   // #region Actions
 
   @action
-  onInput(event) {
+  onInput(event: KeyboardEvent) {
     if (this.args.update !== UPDATE.ONINPUT) {
       return;
     }
 
     if (this.args.onChange) {
-      this.args.onChange(event.target.value);
+      this.args.onChange((event.target as HTMLInputElement).value);
     }
   }
 
   @action
-  onBlur(event) {
+  onBlur(event: KeyboardEvent) {
     if (this.args.update === UPDATE.ONINPUT) {
       return;
     }
 
-    if (event.target.value === this.args.text) {
+    if ((event.target as HTMLInputElement).value === this.args.text) {
       return;
     }
 
@@ -64,7 +77,7 @@ export default class JubileeTextFieldComponent extends Component {
       return;
     }
 
-    this.args.onChange(event.target.value);
+    this.args.onChange((event.target as HTMLInputElement).value);
   }
 
   // #endregion Actions
