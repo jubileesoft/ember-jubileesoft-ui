@@ -2,7 +2,7 @@ import Component from '@glimmer/component';
 import { inject as service } from '@ember/service';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
-import Media from '../services/media';
+import Media from '@jubileesoft/ember-jubileesoft-ui/services/media';
 
 interface OnSelectFunc {
   (internalSelecion: Date | null): void;
