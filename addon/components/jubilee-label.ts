@@ -1,17 +1,22 @@
 import Component from '@glimmer/component';
 
-export default class JubileeLabelComponent extends Component {
+interface JubileeLabelArgs {
+  label: string;
+  label2: string;
+}
+
+export default class JubileeLabel extends Component<JubileeLabelArgs> {
   // #region Properties
 
-  get hasLabel() {
+  get hasLabel(): boolean {
     return typeof this.args.label !== 'undefined';
   }
 
-  get hasLabel2() {
+  get hasLabel2(): boolean {
     return typeof this.args.label2 !== 'undefined';
   }
 
-  get hasAnyLabel() {
+  get hasAnyLabel(): boolean {
     return this.hasLabel || this.hasLabel2;
   }
 

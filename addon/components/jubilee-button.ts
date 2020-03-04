@@ -1,6 +1,10 @@
 import Component from '@glimmer/component';
 
-export default class JubileeButtonComponent extends Component {
+interface JubileeButtonArgs {
+  invert: boolean;
+}
+
+export default class JubileeButton extends Component<JubileeButtonArgs> {
   // #region Properties
 
   get isInverse() {

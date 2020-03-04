@@ -1,15 +1,18 @@
 import Component from '@glimmer/component';
 import { action } from '@ember/object';
 
-export default class JubileeSwitchComponent extends Component {
-  /*
-    @isChecked {boolean}
-    @isEnabled {boolean}
-    @onChange {callback(newValue)}
+interface OnChangeFunc {
+  (newValue: boolean): void;
+}
 
-   */
+interface JubileeSwitchArgs {
+  isEnabled: boolean;
+  isChecked: boolean;
+  onChange: OnChangeFunc;
+}
 
-  get isDisabled() {
+export default class JubileeSwitch extends Component<JubileeSwitchArgs> {
+  get isDisabled(): boolean {
     if (typeof this.args.isEnabled === 'boolean') {
       return !this.args.isEnabled;
     }
