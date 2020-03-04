@@ -1,30 +1,35 @@
 import Component from '@glimmer/component';
 import { action } from '@ember/object';
 import { inject as service } from '@ember/service';
+import Media from '@jubileesoft/ember-jubileesoft-ui/services/media';
 
 const UPDATE = {
   ONBLUR: 'on-blur',
   ONINPUT: 'on-input'
 };
 
-export default class JubileeInputComponent extends Component {
-  /*
-    @text {string}
-    @placeholder {string}
-    @update {'on-blur', 'on-input'} - default is 'on-blur'
-    @onChange {callback(newValue)}
-    @isReadonly {boolean}
-  */
+interface OnChangeFunc {
+  (newValue: string): void;
+}
 
+interface JubileeInputArgs {
+  isReadonly: boolean;
+  update: string;
+  text: string;
+  placeholder?: string;
+  onChange: OnChangeFunc;
+}
+
+export default class JubileeInput extends Component<JubileeInputArgs> {
   // #region Services
 
-  @service media;
+  @service media!: Media;
 
   // #endregion Services
 
   // #region Properties
 
-  get computedIsReadonly() {
+  get computedIsReadonly(): boolean {
     return this.args.isReadonly === true;
   }
 
@@ -33,23 +38,23 @@ export default class JubileeInputComponent extends Component {
   // #region Actions
 
   @action
-  onInput(event) {
+  onInput(event: KeyboardEvent) {
     if (this.args.update !== UPDATE.ONINPUT) {
       return;
     }
 
     if (this.args.onChange) {
-      this.args.onChange(event.target.value);
+      this.args.onChange((event.target as HTMLInputElement).value);
     }
   }
 
   @action
-  onBlur(event) {
+  onBlur(event: KeyboardEvent) {
     if (this.args.update === UPDATE.ONINPUT) {
       return;
     }
 
-    if (event.target.value === this.args.text) {
+    if ((event.target as HTMLInputElement).value === this.args.text) {
       return;
     }
 
@@ -57,7 +62,7 @@ export default class JubileeInputComponent extends Component {
       return;
     }
 
-    this.args.onChange(event.target.value);
+    this.args.onChange((event.target as HTMLInputElement).value);
   }
 
   // #endregion Actions

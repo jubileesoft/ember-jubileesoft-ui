@@ -2,18 +2,22 @@ import Service from '@ember/service';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 
-export default class MediaService extends Service {
+export default class Media extends Service.extend({
+  // anything which *must* be merged to prototype here
+}) {
+  // normal class body definition here
+
   // #region Fields
 
-  _mediaBreakpoint = 940;
+  _mediaBreakpoint: number = 940;
 
   // #endreegion Fields
 
   // #region Properties
 
-  @tracked isSmall = null;
+  @tracked isSmall: boolean | null = null;
 
-  get isLarge() {
+  get isLarge(): boolean | null {
     if (this.isSmall == null) {
       return null;
     }
@@ -30,7 +34,7 @@ export default class MediaService extends Service {
     this._set();
   }
 
-  // #endreegion Hooks
+  // #endregion Hooks
 
   // #region Private Methods
 
@@ -43,9 +47,16 @@ export default class MediaService extends Service {
     const newIsSmall = window.innerWidth <= this._mediaBreakpoint;
 
     if (this.isSmall != newIsSmall) {
-      this.set('isSmall', newIsSmall);
+      this.isSmall = newIsSmall;
     }
   }
 
-  // #endreegion Private Methods
+  // #endregion Private Methods
+}
+
+// DO NOT DELETE: this is how TypeScript knows how to look up your services.
+declare module '@ember/service' {
+  interface Registry {
+    media: Media;
+  }
 }

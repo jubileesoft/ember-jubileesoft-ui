@@ -3,27 +3,38 @@ import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 import { uuid } from 'uuidv4';
 import { inject as service } from '@ember/service';
+import Media from '@jubileesoft/ember-jubileesoft-ui/services/media';
 
-export default class JubileeSelectComponent extends Component {
+interface OnChangeFunc {
+  (newValue: any): void;
+}
+
+interface JubileeSelectArgs {
+  items: any[];
+  selectedItem: any;
+  onChange: OnChangeFunc;
+}
+
+export default class JubileeSelect extends Component<JubileeSelectArgs> {
   // #region Services
 
-  @service media;
+  @service media!: Media;
 
   // #endregion Services
 
   // #region Properties
 
   @tracked
-  isDropdownOpen = false;
+  isDropdownOpen: boolean = false;
 
   @tracked
-  elementId = uuid();
+  elementId: string = uuid();
 
-  get triggerId() {
+  get triggerId(): string {
     return this.elementId + '_trigger';
   }
 
-  get dropdownId() {
+  get dropdownId(): string {
     return this.elementId + '_dropdown';
   }
 
@@ -32,13 +43,13 @@ export default class JubileeSelectComponent extends Component {
   // #region Actions
 
   @action
-  triggerClicked() {
+  triggerClicked(): void {
     this.isDropdownOpen = !this.isDropdownOpen;
     this.adjustDropdownPosition();
   }
 
   @action
-  itemClicked(item) {
+  itemClicked(item: any) {
     if (
       typeof this.args.onChange == 'function' &&
       this.args.selectedItem !== item
@@ -62,6 +73,10 @@ export default class JubileeSelectComponent extends Component {
     const triggerElement = document.getElementById(this.triggerId);
     const dropdownElement = document.getElementById(this.dropdownId);
 
+    if(!triggerElement || !dropdownElement) {
+      return;
+    }
+
     dropdownElement.style.minWidth = triggerElement.offsetWidth + 'px';
   }
 
@@ -72,6 +87,10 @@ export default class JubileeSelectComponent extends Component {
     let index = this.args.items.indexOf(this.args.selectedItem);
 
     const dropdownElement = document.getElementById(this.dropdownId);
+
+    if(!dropdownElement) {
+      return;
+    }
 
     dropdownElement.style.top = '-' + (index * 2.5 + 0.5) + 'rem';
   }
