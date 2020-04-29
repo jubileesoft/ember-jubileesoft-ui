@@ -48,7 +48,7 @@
     "ember-power-calendar-luxon": "^0.1.8",
     "ember-truth-helpers": "^2.1.0",
     "luxon": "^1.17.2",
-    "sass": "^1.22.10",
+    "sass": "^1.26.5",
     "uuidv4": "^6.0.7"
   },
   "devDependencies": {
