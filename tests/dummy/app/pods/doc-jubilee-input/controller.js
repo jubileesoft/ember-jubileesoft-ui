@@ -8,6 +8,11 @@ const UPDATE = {
   ONINPUT: 'on-input'
 };
 
+const THEME = {
+  LIGHT: 'light',
+  DARK: 'dark'
+};
+
 export default class DocJubileeInputController extends Controller {
   // #region Properties
 
@@ -26,6 +31,13 @@ export default class DocJubileeInputController extends Controller {
   /** @type {string} */
   @tracked location = null;
 
+  themes = [THEME.LIGHT, THEME.DARK];
+
+  /** @type {string} */
+  @tracked selectedTheme = null;
+
+  @tracked placeholder = 'Add location';
+
   // #endregion Properties
 
   // #region Hooks
@@ -34,6 +46,7 @@ export default class DocJubileeInputController extends Controller {
     super(...arguments);
     this.updates = [UPDATE.ONBLUR, UPDATE.ONINPUT];
     this.selectedUpdate = this.updates[0];
+    this.selectedTheme = this.themes[0];
 
     this.setHbs();
   }
@@ -73,12 +86,20 @@ export default class DocJubileeInputController extends Controller {
 
     code.push('<JubileeInput');
 
+    if (this.selectedTheme == THEME.DARK) {
+      code.push(`  @theme="${this.selectedTheme}"`);
+    }
+
     code.push('  @text={{this.location}}');
 
     code.push('  @onChange={{fn (mut this.location)}}');
 
     if (this.selectedUpdate === UPDATE.ONINPUT) {
       code.push('  @update="' + UPDATE.ONINPUT + '"');
+    }
+
+    if (this.placeholder) {
+      code.push(`  @placeholder="${this.placeholder}"`);
     }
 
     if (this.isReadonly) {

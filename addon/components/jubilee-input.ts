@@ -2,6 +2,7 @@ import Component from '@glimmer/component';
 import { action } from '@ember/object';
 import { inject as service } from '@ember/service';
 import Media from '@jubileesoft/ember-jubileesoft-ui/services/media';
+import { THEME } from '@jubileesoft/ember-jubileesoft-ui/constants';
 
 const UPDATE = {
   ONBLUR: 'on-blur',
@@ -18,6 +19,7 @@ interface JubileeInputArgs {
   text: string;
   placeholder?: string;
   onChange: OnChangeFunc;
+  theme?: string;
 }
 
 export default class JubileeInput extends Component<JubileeInputArgs> {
@@ -28,6 +30,14 @@ export default class JubileeInput extends Component<JubileeInputArgs> {
   // #endregion Services
 
   // #region Properties
+
+  get theme(): string {
+    return this.args.theme === THEME.DARK ? THEME.DARK : THEME.LIGHt;
+  }
+
+  get isLightTheme(): boolean {
+    return this.theme === THEME.LIGHt;
+  }
 
   get computedIsReadonly(): boolean {
     return this.args.isReadonly === true;

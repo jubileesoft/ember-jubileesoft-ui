@@ -4,6 +4,31 @@ All notable changes to this project will be documented in this file. The format 
 
 An online documentation of the components is available [here](https://ui.jubileesoft.com/).
 
+## <span style="color: #0366d6;">1.1.0</span>
+
+Release Date: 2020-05-01
+
+##### Added
+
+- [#11](https://github.com/jubileesoft/ember-jubileesoft-ui/pull/11) Add light and dark theme to JubileeInput.
+
+##### Changed
+
+- [#9](https://github.com/jubileesoft/ember-jubileesoft-ui/pull/9) Bump different dependencies
+  - Bump @fortawesome/ember-fontawesome from 0.1.14 to 0.2.1
+  - Bump @fortawesome/free-solid-svg-icons from 5.10.2 to 5.13.0
+  - Bump ember-css-modules from 1.3.0-beta.1 to 1.3.0
+  - Bump ember-css-modules-sass from 1.0.1 to 1.1.0
+  - Bump ember-intl from 4.2.2 to 4.3.2
+  - Bump uuidv4 from 6.0.0 to 6.0.7
+  - Bump sass from 1.22.10 to 1.26.5
+- [#8](https://github.com/jubileesoft/ember-jubileesoft-ui/pull/8) Upgrade to ember-cli@3.17.0
+
+##### Fixed
+
+ - [#13](https://github.com/jubileesoft/ember-jubileesoft-ui/pull/13) Fix docs for JubileeInput and add missing attribute @theme to code example.
+ - [#12](https://github.com/jubileesoft/ember-jubileesoft-ui/pull/12) Fix docs for JubileeInput and add missing attribute @placeholder.
+
 ## <span style="color: #0366d6;">1.0.1</span>
 
 Release Date: 2020-03-04

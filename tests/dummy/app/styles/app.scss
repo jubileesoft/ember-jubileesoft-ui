@@ -1,5 +1,5 @@
 @value mediaBreakpoint1: 940px;
-@value desk from 'dummy/styles/colors';
+@value backgroundOnLight from 'dummy/styles/colors';
 
 html,
 body {
@@ -13,7 +13,7 @@ body {
 
   overflow-y: auto;
 
-  background: desk;
+  background: backgroundOnLight;
 }
 
 :global .media {
