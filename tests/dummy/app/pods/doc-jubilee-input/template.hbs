@@ -2,7 +2,7 @@
   <doc.element @name="Input">
     <JubileeInput
       @text={{this.location}}
-      @placeholder="Add location"
+      @placeholder={{this.placeholder}}
       @onChange={{this.onChange}}
       @update={{this.selectedUpdate}}
       @isReadonly={{this.isReadonly}}
@@ -23,6 +23,15 @@
     </div>
   </doc.controls>
   <doc.controls>
+    <div local-class="control">
+      <JubileeTextField
+        class={{local-class "controlFirst"}}
+        @text={{this.placeholder}}
+        @onChange={{fn this.setPropertyAndSetHbs "placeholder"}}
+        @update="on-input"
+      />
+      @placeholder
+    </div>
     <div local-class="control">
       <JubileeSelect
         class={{local-class "controlFirst"}}

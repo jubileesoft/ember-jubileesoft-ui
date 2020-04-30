@@ -36,6 +36,8 @@ export default class DocJubileeInputController extends Controller {
   /** @type {string} */
   @tracked selectedTheme = null;
 
+  @tracked placeholder = 'Add location';
+
   // #endregion Properties
 
   // #region Hooks
@@ -90,6 +92,10 @@ export default class DocJubileeInputController extends Controller {
 
     if (this.selectedUpdate === UPDATE.ONINPUT) {
       code.push('  @update="' + UPDATE.ONINPUT + '"');
+    }
+
+    if (this.placeholder) {
+      code.push(`  @placeholder="${this.placeholder}"`);
     }
 
     if (this.isReadonly) {
