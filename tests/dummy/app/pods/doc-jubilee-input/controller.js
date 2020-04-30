@@ -94,6 +94,10 @@ export default class DocJubileeInputController extends Controller {
       code.push('  @update="' + UPDATE.ONINPUT + '"');
     }
 
+    if (this.placeholder) {
+      code.push(`  @placeholder="${this.placeholder}"`);
+    }
+
     if (this.isReadonly) {
       code.push('  @isReadonly={{true}}');
     }

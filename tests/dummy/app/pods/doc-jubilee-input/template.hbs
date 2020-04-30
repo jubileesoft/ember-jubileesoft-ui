@@ -27,7 +27,7 @@
       <JubileeTextField
         class={{local-class "controlFirst"}}
         @text={{this.placeholder}}
-        @onChange={{fn (mut this.placeholder)}}
+        @onChange={{fn this.setPropertyAndSetHbs "placeholder"}}
         @update="on-input"
       />
       @placeholder
