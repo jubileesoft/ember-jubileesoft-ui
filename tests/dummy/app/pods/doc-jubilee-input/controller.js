@@ -86,6 +86,10 @@ export default class DocJubileeInputController extends Controller {
 
     code.push('<JubileeInput');
 
+    if (this.selectedTheme == THEME.DARK) {
+      code.push(`  @theme="${this.selectedTheme}"`);
+    }
+
     code.push('  @text={{this.location}}');
 
     code.push('  @onChange={{fn (mut this.location)}}');
