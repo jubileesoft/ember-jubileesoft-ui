@@ -36,6 +36,8 @@ export default class DocJubileeInputController extends Controller {
   /** @type {string} */
   @tracked selectedTheme = null;
 
+  @tracked placeholder = 'Add location';
+
   // #endregion Properties
 
   // #region Hooks
