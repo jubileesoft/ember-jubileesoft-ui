@@ -1,6 +1,6 @@
 {
   "name": "@jubileesoft/ember-jubileesoft-ui",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "private": false,
   "description": "Common UI components for ember apps from Jubileesoft.",
   "keywords": [
