@@ -1,7 +1,4 @@
-//@value onSurface, onSurfaceDark from 'colors';
-//@value primary, separator from 'colors';
-@value onSurface, onSurfaceDark from '@jubileesoft/ember-jubileesoft-ui/styles/colors';
-@value primary, separator from '@jubileesoft/ember-jubileesoft-ui/styles/colors';
+@value primary, accent, accentLight, textOnLight, textOnDark from 'colors';
 
 .inputClass {
   height: 2.5rem; // 40px with 16px default font-size
@@ -15,26 +12,32 @@
   font-family: inherit;
   font-size: 1.125rem;
 
-  color: onSurfaceDark;
+  //color: onSurfaceDark;
   
+  background: transparent;
+  padding-left: 0.5rem; // 8px
+  padding-right: 0.5rem; // 8px
 }
 
 .inputClass:focus {
   outline: none;
-}
-
-.inputClassSmall {
-  background: transparent;
-}
-
-.inputClassLarge {
-  padding-left: 0.5rem; // 8px
-  padding-right: 0.5rem; // 8px
-
-  background: #f0f2f4;
-}
-
-.inputClassLarge:focus {  
   border-bottom-color: primary;
-  
+}
+
+.inputClassLight {
+  color: textOnLight;
+  border-bottom-color: accent;
+}
+
+.inputClassLight::placeholder {
+  color: accentLight;
+}
+
+.inputClassDark {
+  color: textOnDark;
+  border-bottom-color: accentLight;
+}
+
+.inputClassDark::placeholder {
+  color: accent;
 }
