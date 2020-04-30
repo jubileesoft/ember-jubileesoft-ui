@@ -8,6 +8,11 @@ const UPDATE = {
   ONINPUT: 'on-input'
 };
 
+const THEME = {
+  LIGHT: 'light',
+  DARK: 'dark'
+};
+
 export default class DocJubileeInputController extends Controller {
   // #region Properties
 
@@ -26,6 +31,11 @@ export default class DocJubileeInputController extends Controller {
   /** @type {string} */
   @tracked location = null;
 
+  themes = [THEME.LIGHT, THEME.DARK];
+
+  /** @type {string} */
+  @tracked selectedTheme = null;
+
   // #endregion Properties
 
   // #region Hooks
@@ -34,6 +44,7 @@ export default class DocJubileeInputController extends Controller {
     super(...arguments);
     this.updates = [UPDATE.ONBLUR, UPDATE.ONINPUT];
     this.selectedUpdate = this.updates[0];
+    this.selectedTheme = this.themes[0];
 
     this.setHbs();
   }
