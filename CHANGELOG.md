@@ -22,6 +22,7 @@ An online documentation of the components is available [here](https://ui.jubilee
 
 ##### Fixed
 
+ - [#13](https://github.com/jubileesoft/ember-jubileesoft-ui/pull/13) Fix docs for JubileeInput and add missing attribute @theme to code example.
  - [#12](https://github.com/jubileesoft/ember-jubileesoft-ui/pull/12) Fix docs for JubileeInput and add missing attribute @placeholder.
 
 ## <span style="color: #0366d6;">1.0.1</span>
