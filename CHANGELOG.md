@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file. The format 
 
 An online documentation of the components is available [here](https://ui.jubileesoft.com/).
 
+##### Added
+
+- [#12](https://github.com/jubileesoft/ember-jubileesoft-ui/pull/11) Add light and dark theme to JubileeInput.
+
+##### Changed
+
 - [#9](https://github.com/jubileesoft/ember-jubileesoft-ui/pull/9) Bump different dependencies
   - Bump @fortawesome/ember-fontawesome from 0.1.14 to 0.2.1
   - Bump @fortawesome/free-solid-svg-icons from 5.10.2 to 5.13.0
