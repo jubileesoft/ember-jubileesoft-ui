@@ -1,33 +1,27 @@
-//@value primary, onPrimary, primaryLight from 'colors';
-@value primary, onPrimary, primaryLight from '@jubileesoft/ember-jubileesoft-ui/styles/colors';
+@value accent, accentLight, textOnAccent from 'colors';
 
 .root {
+  composes: no-select from '@jubileesoft/ember-jubileesoft-ui/styles/addon';
   height: 2.5rem; // 40px
   padding-left: 0.75rem;
   padding-right: 0.75rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  cursor: pointer;
   border-radius: 6px;
   font-weight: 500;
+  color: textOnAccent;
 }
 
-.inverse {
-  color: primary;
-  background: transparent;
+.enabled {
+  cursor: pointer;
+  background: accent;
 }
 
-.inverse:hover {
-  background: primaryLight;
-  color: #ffffff;
+.enabled:active {
+  background: darken(accent, 10%);
 }
 
-.nonInverse {
-  background: primary;
-  color: onPrimary;
-}
-
-.nonInverse:hover {
-  background: primaryLight;
+.disabled {
+  background: accentLight;
 }
