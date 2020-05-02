@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file. The format 
 
 An online documentation of the components is available [here](https://ui.jubileesoft.com/).
 
+##### Changed
+
+- [#16](https://github.com/jubileesoft/ember-jubileesoft-ui/pull/16) Re-theme JubileeButton (and remove the attribute @invert).
+
 ## <span style="color: #0366d6;">1.1.0</span>
 
 Release Date: 2020-05-01

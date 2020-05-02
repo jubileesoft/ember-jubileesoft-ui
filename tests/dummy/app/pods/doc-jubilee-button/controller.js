@@ -7,7 +7,7 @@ export default class DocJubileeButtonController extends Controller {
   // #region Properties
 
   @tracked code;
-  @tracked isInvert = true;
+  @tracked isEnabled = true;
 
   // #endregion Properties
 
@@ -23,8 +23,8 @@ export default class DocJubileeButtonController extends Controller {
   // #region Actions
 
   @action
-  isInvertChange(event) {
-    this.isInvert = event.target.checked;
+  isEnabledClick(event) {
+    this.isEnabled = event.target.checked;
     this.setHbs();
   }
 
@@ -36,7 +36,11 @@ export default class DocJubileeButtonController extends Controller {
     const code = [];
 
     code.push('<JubileeButton');
-    code.push('  {{on "click" this.buttonPressed}}');
+    code.push('  @onClick={{this.buttonClicked}}');
+
+    if (!this.isEnabled) {
+      code.push(`  @isEnabled={{${this.isEnabled}}}`);
+    }
 
     if (this.isInvert) {
       code.push(`  @invert={{${this.isInvert}}}`);

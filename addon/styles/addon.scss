@@ -13,6 +13,14 @@
   @include ember-power-calendar($cell-size: 70px);
 }
 
+.no-select {
+  user-select: none;
+  -ms-user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+
 .jubileeUi {
   font-family: 'Roboto', sans-serif;
   font-weight: 400;

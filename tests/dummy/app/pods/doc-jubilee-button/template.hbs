@@ -1,20 +1,15 @@
 <Doc as |doc|>
   <doc.element @name="Button">
-    <JubileeButton @text="Load Data" @invert={{this.isInvert}} />
+    <JubileeButton @text="Load Data" @isEnabled={{this.isEnabled}} />
   </doc.element>
   <doc.controls>
     <div>
-      {{#if this.isInvert}}
-        <input
-          type="checkbox"
-          checked="checked"
-          {{on "click" this.isInvertChange}}
-        />
-        @invert
-      {{else}}
-        <input type="checkbox" {{on "click" this.isInvertChange}} />
-        @invert
-      {{/if}}
+      <input
+        type="checkbox"
+        checked={{this.isEnabled}}
+        {{on "click" this.isEnabledClick}}
+      />
+      @isEnabled
     </div>
   </doc.controls>
   <doc.hbs @code={{this.code}} />
