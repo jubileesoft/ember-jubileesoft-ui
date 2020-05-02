@@ -29,6 +29,7 @@ module.exports = {
             primary: config.primary || '#f06292',
 
             accent: config.accent || '#797979',
+            textOnAccent: config.textOnAccent || '#ffffff',
             accentLight: config.accentLight || '#d7d7d7',
             accentDark: config.accentDark || '#5c5c5c',
 

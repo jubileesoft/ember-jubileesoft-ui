@@ -4,6 +4,16 @@ All notable changes to this project will be documented in this file. The format 
 
 An online documentation of the components is available [here](https://ui.jubileesoft.com/).
 
+## <span style="color: #0366d6;">1.1.1</span>
+
+Release Date: 2020-05-02
+
+##### Changed
+
+- [#16](https://github.com/jubileesoft/ember-jubileesoft-ui/pull/16) Re-theme JubileeButton (and remove the attribute @invert).
+- [#10](https://github.com/jubileesoft/ember-jubileesoft-ui/pull/10) @dependabot - Bump jquery from 3.4.1 to 3.5.0
+- [#7](https://github.com/jubileesoft/ember-jubileesoft-ui/pull/7) @dependabot - Bump acorn from 5.7.3 to 5.7.4
+
 ## <span style="color: #0366d6;">1.1.0</span>
 
 Release Date: 2020-05-01
