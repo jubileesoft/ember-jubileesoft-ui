@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file. The format 
 
 An online documentation of the components is available [here](https://ui.jubileesoft.com/).
 
+##### Fixed
+
+- [#17](https://github.com/jubileesoft/ember-jubileesoft-ui/pull/17) Fix margin and text-alignment of JubileeButton
+
 ## <span style="color: #0366d6;">1.1.1</span>
 
 Release Date: 2020-05-02
