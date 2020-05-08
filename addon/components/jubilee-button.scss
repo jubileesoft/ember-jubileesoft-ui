@@ -3,11 +3,16 @@
 .root {
   composes: no-select from '@jubileesoft/ember-jubileesoft-ui/styles/addon';
   height: 2.5rem; // 40px
+
+  margin-top: 0.25rem; // 4px
+  margin-bottom: 0.25rem; // 4px  
+
   padding-left: 0.75rem;
   padding-right: 0.75rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   border-radius: 6px;
   font-weight: 500;
   color: textOnAccent;
