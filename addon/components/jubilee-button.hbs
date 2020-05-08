@@ -1,7 +1,5 @@
 <div
-  local-class={{
-    concat "root " (if this.isDisabled "disabled" "enabled")
-  }}
+  local-class={{concat "root " (if this.isDisabled "disabled" "enabled")}}
   role="button"
   ...attributes
   {{on "click" this.onButtonClick}}
